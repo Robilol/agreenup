@@ -1,7 +1,38 @@
 import Head from 'next/head'
 import Image from "next/image";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import cx from 'classnames'
 
 export default function Home() {
+  const contentRef = useRef<HTMLDivElement>()
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
+
+  useLayoutEffect(() => {
+    const onScroll = () => {
+      console.log(contentRef)
+      if (contentRef?.current?.scrollTop! > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    const div = contentRef.current;
+
+    console.log(div)
+
+    if (div) {
+      div.addEventListener("scroll", onScroll);
+    }
+
+    return () => {
+      if (div) {
+        div.removeEventListener("scroll", onScroll);
+      }
+    };
+
+  }, [])
+
   return (
     <>
       <Head>
@@ -10,6 +41,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
         <link href="https://fonts.cdnfonts.com/css/hk-groteks" rel="stylesheet"/>
+        <link href="https://fonts.cdnfonts.com/css/sporting-grotesque" rel="stylesheet"/>
       </Head>
       <main className="font-['HK_Grotesk']">
         <Image alt="" src="/vector-1.svg" width={271} height={257} className="fixed"/>
@@ -18,105 +50,226 @@ export default function Home() {
         <Image alt="" src="/vector-4.svg" width={650} height={501} className="fixed bottom-10 left-28"/>
         <Image alt="" src="/vector-5.svg" width={300} height={231} className="fixed top-10 right-28"/>
         <Image alt="" src="/vector-6.svg" width={506} height={470}/>
-        <div className="backdrop-blur-[75px] bg-white/50 fixed inset-0 flex justify-center p-[50px] overflow-y-auto">
-          <div className="max-w-[1380px] w-full relative flex flex-col">
-            <div className="border-primary-900 border-2 fixed flex items-center">
-              <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-3xl">
-                Agreenup
-              </div>
-              <div className="px-5 py-2 text-primary-900 font-bold flex space-x-10 items-center text-lg">
-                <span>La permaculture</span>
-                <span>À propos</span>
-                <span>Les formations</span>
-                <button className="px-5 py-1.5 bg-primary-900 text-white rounded-[40px]">Réserver une formation</button>
-              </div>
-            </div>
-            <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
-              <div className="w-1/2 items-center flex">
-                <div className="text-primary-900">
-                  <span className="text-5xl mb-5 block w-80">Apprendre la permaculture en 2h30</span>
-                  <p className="w-full">Produire son potager et ses plantes décoratives en résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
-                  <button className="px-5 py-1.5 bg-primary-900 text-white rounded-[40px] mt-8">Réserver une formation</button>
+        <div className="backdrop-blur-[75px] bg-white/50 fixed inset-0 overflow-y-auto" ref={contentRef}>
+          <div className='p-[50px]'>
+            <div className="max-w-[1380px] w-full relative flex flex-col">
+              <div className={cx("border-primary-900 border-2 fixed flex items-center", {
+                'bg-white': isScrolled
+              })}>
+                <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-3xl">
+                  Agreenup
+                </div>
+                <div className="px-5 py-2 text-primary-900 font-bold flex space-x-10 items-center text-lg">
+                  <span>La permaculture</span>
+                  <span>À propos</span>
+                  <span>Les formations</span>
+                  <button className="px-5 py-1.5 bg-primary-600 text-white rounded-[40px]">Réserver une formation
+                  </button>
                 </div>
               </div>
-              <div className="w-1/2 flex flex-col gap-6 items-center">
-                <img src="http://placekitten.com/323/323" alt=""/>
-                <img src="http://placekitten.com/323/323" alt=""/>
-              </div>
-            </div>
-            <div className="flex flex-row w-full">
-              <div className="w-1/2 border-t-2 border-primary-900"></div>
-              <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-20"></div>
-            </div>
-            <div className="flex w-full justify-center">
-              <div className="flex flex-col w-full max-w-[1020px] -mt-[2px]">
-                <div className="w-full flex">
-                  <div className="w-1/2 border-l-2 border-t-2 border-r-0 border-primary-900 text-5xl text-primary-900 flex items-center px-10">
-                    <span>La permaculture</span>
-                  </div>
-                  <div className="w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
-                </div>
-                <div className="border-2 border-b-0 border-primary-900 px-12 py-24 flex gap-10">
-                  <div className="grid grid-cols-2 gap-5 w-1/2">
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                  </div>
-                  <div className="w-1/2">
-                    <p className="text-lg text-primary-900">Le Développement Durable est une façon de penser, de vivre en collectivité avec la Nature. Il y a différents domaines, c'est une philosophie de vie, un concept que l'on peut tous appliquer pour les générations présentes et futures.</p>
+              <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
+                <div className="w-1/2 items-center flex">
+                  <div className="text-primary-900">
+                  <span
+                    className="text-[44px] leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre la permaculture en 2h</span>
+                    <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
+                      résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
+                    <button
+                      className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] w-fulls">Réserver
+                      une formation
+                    </button>
                   </div>
                 </div>
-                <div className="flex flex-row w-full">
-                  <div className="w-1/2 border-t-2 border-primary-900"></div>
-                  <div className="w-1/2 border-x-2 border-primary-900 h-20"></div>
+                <div className="w-1/2 flex flex-col gap-6 items-center">
+                  <img src="http://placekitten.com/323/323" alt=""/>
+                  <img src="http://placekitten.com/323/323" alt=""/>
+                </div>
+              </div>
+              <div className="flex flex-row w-full">
+                <div className="w-1/2 border-t-2 border-primary-900"></div>
+                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-20"></div>
+              </div>
+              <div className="flex w-full justify-center">
+                <div className="flex flex-col w-full max-w-[1020px] -mt-[2px]">
+                  <div className="w-full flex">
+                    <div
+                      className="w-1/2 border-l-2 border-t-2 border-r-0 border-primary-900 text-primary-900 flex items-center px-7">
+                      <span className="text-[44px] leading-[54px] font-sporting-grotesque">La permaculture</span>
+                    </div>
+                    <div className="w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
+                  </div>
+                  <div className="border-2 border-b-0 border-primary-900 px-12 py-24 flex gap-10">
+                    <div className="grid grid-cols-2 gap-5 w-1/2">
+                      <img src="http://placekitten.com/255/255" alt=""/>
+                      <img src="http://placekitten.com/255/255" alt=""/>
+                      <img src="http://placekitten.com/255/255" alt=""/>
+                      <img src="http://placekitten.com/255/255" alt=""/>
+                    </div>
+                    <div className="w-1/2">
+                      <p className="text-lg text-primary-900">La permaculture est un concept qui englobe à la fois une
+                        méthode de conception durable pour les systèmes humains et une philosophie de vie. Le
+                        mot &quot;permaculture&quot; est une contraction de &quot;culture
+                        permanente&quot; ou &quot;agriculture permanente&quot;.
+
+                        La permaculture s&apos;inspire de la nature pour concevoir des systèmes humains résilients et
+                        durables, qui fonctionnent en harmonie avec les écosystèmes locaux. Elle se concentre sur la
+                        création d&apos;un système circulaire, où les déchets sont recyclés, les nutriments sont
+                        réutilisés, et où les plantes et les animaux travaillent ensemble pour maintenir un équilibre
+                        écologique sain.
+
+                        La permaculture applique les principes de la biologie, de la botanique, de la zoologie et de la
+                        géologie pour créer des systèmes écologiquement sains. Elle encourage la diversité des espèces
+                        et
+                        la création d&apos;un habitat naturel pour les plantes et les animaux, afin de favoriser la
+                        régénération des sols et la réduction de l&apos;empreinte écologique.
+
+                        En somme, la permaculture est une approche holistique pour la conception de systèmes durables,
+                        qui
+                        prend en compte les besoins et les limites de l&apos;environnement naturel, des êtres humains et
+                        de la communauté dans son ensemble.</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-row w-full">
+                    <div className="w-1/2 border-t-2 border-primary-900"></div>
+                    <div className="w-1/2 border-x-2 border-primary-900 h-20"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
+                <div className="w-1/2 items-center flex">
+                  <div className="text-primary-900">
+                    <span className="text-[44px] leading-[54px] mb-5 block w-80 font-sporting-grotesque">Je suis Laurent Jarozs, formateur et passionné</span>
+                    <p className="w-full">Mes parents m’ont transmis leur amour du jardinage ce qui fait de moi un
+                      passionné de permaculture depuis mon enfance. J’ai à coeur de transmettre ma passion pour
+                      préserver
+                      la biodiversité et les générations futures. </p>
+                    <button className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
+                    </button>
+                  </div>
+                </div>
+                <div className="w-1/2 flex flex-col gap-6 items-center">
+                  <img src="http://placekitten.com/485/485" alt=""/>
+                </div>
+              </div>
+              <div className="flex flex-row w-full">
+                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-20"></div>
+                <div className="w-1/2 border-t-2 border-primary-900"></div>
+              </div>
+              <div className="flex w-full justify-center">
+                <div className="flex flex-col w-full max-w-[1020px] -mt-[2px]">
+                  <div className="w-full flex">
+                    <div className="w-1/2 border-r-2 border-b-0 border-primary-900 h-20"></div>
+                    <div
+                      className="w-1/2 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7">
+                      <span className="text-[44px] leading-[54px] font-sporting-grotesque">Les formations</span>
+                    </div>
+                  </div>
+                  <div className="border-2 border-primary-900 flex flex-col">
+                    <div className="bg-primary-900 p-2.5 flex justify-center">
+                      <span className="text-[15px] leading-[18px] text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu’à 15 participants</span>
+                    </div>
+                    <div className="flex flex-row w-full">
+                      <div className="w-1/2 p-24 flex flex-col items-center">
+                      <span
+                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-[50px]">Un jardin en autonomie</span>
+                        <span
+                          className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
+                        <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée en 1h30, puis temps d&apos;échange de 30 minutes pour répondre à vos questions.</span>
+                        <ul
+                          className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
+                          <li>La relation systémique entre les sols, les plantes et le climat</li>
+                          <li> La vie des microbiotes des sols, la santé commence par le respect de la Terre
+                            nourricière.
+                          </li>
+                          <li>L&apos;association des plantes entre elles pour favoriser leur croissance et leur défense.
+                          </li>
+                          <li>La rotation des cultures</li>
+                          <li>Le recyclage des déchets verts</li>
+                          <li>Le paillage</li>
+                          <li>Les engrais verts</li>
+                          <li>Produire ses graines et les conserver.</li>
+                        </ul>
+                        <button
+                          className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] mt-[50px] w-full">Réserver
+                        </button>
+                      </div>
+                      <div className="w-1/2 p-24 flex flex-col items-center border-l-2 border-primary-900">
+                      <span
+                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-[50px]">Les plantes à la maison</span>
+                        <span
+                          className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
+                        <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée en 1h30, puis temps d&apos;échange de 30 minutes pour répondre à vos questions.</span>
+                        <ul
+                          className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
+                          <li>La croissance des plantes et comment pallier les facteurs limitants dans un environnement
+                            clos.
+                          </li>
+                          <li>Les substrats</li>
+                          <li>L&apos;arrosage</li>
+                          <li>Le fleurissement</li>
+                          <li>Garder ses plantes l&apos;hiver.</li>
+                          <li>Fertiliser naturellement ses plantes d&apos;intérieur dès le printemps.</li>
+                        </ul>
+                        <button
+                          className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] mt-[130px] w-full">Réserver
+                        </button>
+                      </div>
+                    </div>
+                    <div className="border-t-2 border-primary-900 p-24 flex flex-col">
+                      <span
+                        className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">Sur-mesure</span>
+                      <span className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">Vous êtes une école, un collège, un lycée, un particulier, un groupe… ?</span>
+                      <div className="mt-[50px] flex flex-row gap-32">
+                        <div className="w-1/2 text-primary-900 flex flex-col">
+                          <span className="text-[18px] leading-[22px]">Vous souhaitez réaliser une formation de permaculture selon certaines conditions ?</span>
+                          <span className="font-medium text-[15px] leading-[15px] mt-2.5">Je m’adapte à vos besoins en réalisant des formations sur-mesures.</span>
+                          <span className="font-medium text-[15px] leading-[15px] mt-5">Ces formations peuvent être réalisées en visio-conférence ou en physique.</span>
+                        </div>
+                        <div className="w-1/2">
+                          <button
+                            className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] text-[18px] leading-[22px] mt-10 w-full">Demander
+                            un devis
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
-              <div className="w-1/2 items-center flex">
-                <div className="text-primary-900">
-                  <span className="text-5xl mb-5 block w-80">Je suis Laurent Jacozs, formateur</span>
-                  <p className="w-full">Cheesy grin mascarpone the big cheese goat fromage frais hard cheese port-salut paneer. Queso bavarian bergkase everyone loves camembert de normandie cheese and biscuits mascarpone blue castello chalk and cheese. Manchego cut the cheese.</p>
-                  <button className="px-5 py-1.5 bg-primary-900 text-white rounded-[40px] mt-8">En savoir plus</button>
+          </div>
+          <div className="bg-primary-900">
+            <div className="max-w-[1020px] w-full relative flex flex-col mx-auto pt-[50px]">
+              <div className="w-full flex flex-row gap-[50px]">
+                <div className="flex flex-col">
+                  <span className="font-bold text-primary-50 text-[18px] mb-5">Agreenup</span>
+                  <span className="text-primary-50 text-[18px]">Laurent Jarosz, formateur & freelance</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-primary-50 text-[18px] mb-5">Réseaux sociaux</span>
+                  <a href="#" className="text-primary-50 text-[18px] underline">LinkedIn</a>
+                  <a href="#" className="text-primary-50 text-[18px] underline">Instagram</a>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-primary-50 text-[18px] mb-5">Envie d’échanger ?</span>
+                  <button
+                    className="px-5 py-2.5 text-primary-600 bg-primary-50 rounded-[40px] text-[18px] leading-[22px]">Me contacter
+                  </button>
                 </div>
               </div>
-              <div className="w-1/2 flex flex-col gap-6 items-center">
-                <img src="http://placekitten.com/485/485" alt=""/>
-              </div>
-            </div>
-            <div className="flex flex-row w-full">
-              <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-20"></div>
-              <div className="w-1/2 border-t-2 border-primary-900"></div>
-            </div>
-            <div className="flex w-full justify-center">
-              <div className="flex flex-col w-full max-w-[1020px] -mt-[2px]">
-                <div className="w-full flex">
-                  <div className="w-1/2 border-r-2 border-b-0 border-primary-900 h-20"></div>
-                  <div className="w-1/2 border-r-2 border-t-2 border-primary-900 text-5xl text-primary-900 flex items-center px-10">
-                    <span>La permaculture</span>
-                  </div>
-                </div>
-                <div className="border-2 border-b-0 border-primary-900 px-12 py-24 flex gap-10">
-                  <div className="grid grid-cols-2 gap-5 w-1/2">
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                    <img src="http://placekitten.com/255/255" alt=""/>
-                  </div>
-                  <div className="w-1/2">
-                    <p className="text-lg text-primary-900">Le Développement Durable est une façon de penser, de vivre en collectivité avec la Nature. Il y a différents domaines, c'est une philosophie de vie, un concept que l'on peut tous appliquer pour les générations présentes et futures.</p>
-                  </div>
-                </div>
-                <div className="flex flex-row w-full">
-                  <div className="w-1/2 border-t-2 border-primary-900"></div>
-                  <div className="w-1/2 border-x-2 border-primary-900 h-20"></div>
-                </div>
+              <div className="w-full border-t border-primary-600 flex flex-row items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
+                <span>© 2023 Agreenup</span>
+                <div className="rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                <a href="#" className="underline">Mentions légales</a>
+                <div className="rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                <a href="#" className="underline">Politique de confidentialité</a>
               </div>
             </div>
           </div>
         </div>
       </main>
     </>
-  )
+  );
 }
