@@ -2,10 +2,12 @@ import Head from 'next/head'
 import Image from "next/image";
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import cx from 'classnames'
+import Modal from "@/components/Modal";
 
 export default function Home() {
-  const contentRef = useRef<HTMLDivElement>()
+  const contentRef = useRef<HTMLDivElement | null>(null)
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  const [showAboutModal, setShowAboutModal] = useState<boolean>(false)
 
   useLayoutEffect(() => {
     const onScroll = () => {
@@ -141,7 +143,7 @@ export default function Home() {
                       passionné de permaculture depuis mon enfance. J’ai à coeur de transmettre ma passion pour
                       préserver
                       la biodiversité et les générations futures. </p>
-                    <button className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
+                    <button onClick={() => setShowAboutModal(true)} className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
                     </button>
                   </div>
                 </div>
@@ -268,6 +270,9 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Modal isOpen={showAboutModal} onClose={() => setShowAboutModal(false)}>
+        <div>dsds</div>
+      </Modal>
     </>
   );
 }
