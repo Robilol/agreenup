@@ -44,29 +44,27 @@ export default function Home() {
         <link href="https://fonts.cdnfonts.com/css/sporting-grotesque" rel="stylesheet"/>
       </Head>
       <main className="font-['HK_Grotesk']">
-        <Image alt="" src="/vector-1.svg" width={271} height={257} className="fixed"/>
-        <Image alt="" src="/vector-2.svg" width={402} height={375} className="fixed left-48 top-48"/>
-        <Image alt="" src="/vector-3.svg" width={472} height={429} className="fixed bottom-10 right-10"/>
-        <Image alt="" src="/vector-4.svg" width={650} height={501} className="fixed bottom-10 left-28"/>
-        <Image alt="" src="/vector-5.svg" width={300} height={231} className="fixed top-10 right-28"/>
-        <Image alt="" src="/vector-6.svg" width={506} height={470}/>
+        <div className="z-[1] relative p-[50px]">
+          <div className="max-w-[1380px]">
+            <div className={cx("border-primary-900 border-2 fixed flex items-center", {
+              'bg-white': isScrolled
+            })}>
+              <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-3xl">
+                Agreenup
+              </div>
+              <div className="px-5 py-2 text-primary-900 font-bold flex space-x-10 items-center text-lg">
+                <span>La permaculture</span>
+                <span>À propos</span>
+                <span>Les formations</span>
+                <button className="px-5 py-1.5 bg-primary-600 text-white rounded-[40px]">Réserver une formation
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="backdrop-blur-[75px] bg-white/50 fixed inset-0 overflow-y-auto" ref={contentRef}>
           <div className='p-[50px]'>
             <div className="max-w-[1380px] w-full relative flex flex-col">
-              <div className={cx("border-primary-900 border-2 fixed flex items-center", {
-                'bg-white': isScrolled
-              })}>
-                <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-3xl">
-                  Agreenup
-                </div>
-                <div className="px-5 py-2 text-primary-900 font-bold flex space-x-10 items-center text-lg">
-                  <span>La permaculture</span>
-                  <span>À propos</span>
-                  <span>Les formations</span>
-                  <button className="px-5 py-1.5 bg-primary-600 text-white rounded-[40px]">Réserver une formation
-                  </button>
-                </div>
-              </div>
               <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
                 <div className="w-1/2 items-center flex">
                   <div className="text-primary-900">
