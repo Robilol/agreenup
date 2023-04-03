@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from "next/image";
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import cx from 'classnames'
-import Modal from "@/components/Modal";
+import AboutModal from "@/components/AboutModal";
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement | null>(null)
@@ -20,8 +20,6 @@ export default function Home() {
     };
 
     const div = contentRef.current;
-
-    console.log(div)
 
     if (div) {
       div.addEventListener("scroll", onScroll);
@@ -48,16 +46,25 @@ export default function Home() {
       <main className="font-['HK_Grotesk']">
         <div className="z-[1] relative p-[50px]">
           <div className="max-w-[1380px]">
-            <div className={cx("border-primary-900 border-2 fixed flex items-center", {
+            <div className={cx("border-primary-900 border-2 fixed flex items-center bg-transparent transition", {
               'bg-white': isScrolled
             })}>
               <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-3xl">
                 Agreenup
               </div>
               <div className="px-5 py-2 text-primary-900 font-bold flex space-x-10 items-center text-lg">
-                <span>La permaculture</span>
-                <span>À propos</span>
-                <span>Les formations</span>
+                <button onClick={() => document?.querySelector('#permaculture')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>La permaculture
+                </button>
+                <button onClick={() => document?.querySelector('#about')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>À propos
+                </button>
+                <button onClick={() => document?.querySelector('#formations')?.scrollIntoView({
+                  behavior: 'smooth'
+                })}>Les formations
+                </button>
                 <button className="px-5 py-1.5 bg-primary-600 text-white rounded-[40px]">Réserver une formation
                 </button>
               </div>
@@ -81,8 +88,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="w-1/2 flex flex-col gap-6 items-center">
-                  <img src="http://placekitten.com/323/323" alt=""/>
-                  <img src="http://placekitten.com/323/323" alt=""/>
+                  <div className="w-[323px] h-[323px] relative">
+                    <Image src="/img/img-home-1@2x.png" alt="" fill/>
+                  </div>
+                  <div className="w-[323px] h-[323px] relative">
+                    <Image src="/img/img-home-2@2x.png" alt="" fill/>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row w-full">
@@ -93,7 +104,8 @@ export default function Home() {
                 <div className="flex flex-col w-full max-w-[1020px] -mt-[2px]">
                   <div className="w-full flex">
                     <div
-                      className="w-1/2 border-l-2 border-t-2 border-r-0 border-primary-900 text-primary-900 flex items-center px-7">
+                      id="permaculture"
+                      className="w-1/2 border-l-2 border-t-2 border-r-0 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
                       <span className="text-[44px] leading-[54px] font-sporting-grotesque">La permaculture</span>
                     </div>
                     <div className="w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
@@ -105,24 +117,28 @@ export default function Home() {
                       <img src="http://placekitten.com/255/255" alt=""/>
                       <img src="http://placekitten.com/255/255" alt=""/>
                     </div>
-                    <div className="w-1/2">
-                      <p className="text-lg text-primary-900">La permaculture est un concept qui englobe à la fois une
+                    <div className="w-1/2 space-y-3">
+                      <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
+                        englobe à la fois une
                         méthode de conception durable pour les systèmes humains et une philosophie de vie. Le
                         mot &quot;permaculture&quot; est une contraction de &quot;culture
                         permanente&quot; ou &quot;agriculture permanente&quot;.
-
+                      </p>
+                      <p className="text-[18px] leading-[22px] text-primary-900">
                         La permaculture s&apos;inspire de la nature pour concevoir des systèmes humains résilients et
                         durables, qui fonctionnent en harmonie avec les écosystèmes locaux. Elle se concentre sur la
                         création d&apos;un système circulaire, où les déchets sont recyclés, les nutriments sont
                         réutilisés, et où les plantes et les animaux travaillent ensemble pour maintenir un équilibre
                         écologique sain.
-
+                      </p>
+                      <p className="text-[18px] leading-[22px] text-primary-900">
                         La permaculture applique les principes de la biologie, de la botanique, de la zoologie et de la
                         géologie pour créer des systèmes écologiquement sains. Elle encourage la diversité des espèces
                         et
                         la création d&apos;un habitat naturel pour les plantes et les animaux, afin de favoriser la
                         régénération des sols et la réduction de l&apos;empreinte écologique.
-
+                      </p>
+                      <p className="text-[18px] leading-[22px] text-primary-900">
                         En somme, la permaculture est une approche holistique pour la conception de systèmes durables,
                         qui
                         prend en compte les besoins et les limites de l&apos;environnement naturel, des êtres humains et
@@ -135,20 +151,23 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
+              <div id="about" className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
                 <div className="w-1/2 items-center flex">
                   <div className="text-primary-900">
                     <span className="text-[44px] leading-[54px] mb-5 block w-80 font-sporting-grotesque">Je suis Laurent Jarozs, formateur et passionné</span>
-                    <p className="w-full">Mes parents m’ont transmis leur amour du jardinage ce qui fait de moi un
-                      passionné de permaculture depuis mon enfance. J’ai à coeur de transmettre ma passion pour
+                    <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardinage ce qui fait de moi un
+                      passionné de permaculture depuis mon enfance. J&apos;ai à coeur de transmettre ma passion pour
                       préserver
                       la biodiversité et les générations futures. </p>
-                    <button onClick={() => setShowAboutModal(true)} className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
+                    <button onClick={() => setShowAboutModal(true)}
+                            className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
                     </button>
                   </div>
                 </div>
                 <div className="w-1/2 flex flex-col gap-6 items-center">
-                  <img src="http://placekitten.com/485/485" alt=""/>
+                  <div className="w-[485px] h-[485px] relative">
+                    <Image src="/img/img-about@2x.png" alt="" fill/>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row w-full">
@@ -160,13 +179,14 @@ export default function Home() {
                   <div className="w-full flex">
                     <div className="w-1/2 border-r-2 border-b-0 border-primary-900 h-20"></div>
                     <div
-                      className="w-1/2 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7">
+                      id="formations"
+                      className="w-1/2 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
                       <span className="text-[44px] leading-[54px] font-sporting-grotesque">Les formations</span>
                     </div>
                   </div>
                   <div className="border-2 border-primary-900 flex flex-col">
                     <div className="bg-primary-900 p-2.5 flex justify-center">
-                      <span className="text-[15px] leading-[18px] text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu’à 15 participants</span>
+                      <span className="text-[15px] leading-[18px] text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
                     </div>
                     <div className="flex flex-row w-full">
                       <div className="w-1/2 p-24 flex flex-col items-center">
@@ -224,7 +244,7 @@ export default function Home() {
                       <div className="mt-[50px] flex flex-row gap-32">
                         <div className="w-1/2 text-primary-900 flex flex-col">
                           <span className="text-[18px] leading-[22px]">Vous souhaitez réaliser une formation de permaculture selon certaines conditions ?</span>
-                          <span className="font-medium text-[15px] leading-[15px] mt-2.5">Je m’adapte à vos besoins en réalisant des formations sur-mesures.</span>
+                          <span className="font-medium text-[15px] leading-[15px] mt-2.5">Je m&apos;adapte à vos besoins en réalisant des formations sur-mesures.</span>
                           <span className="font-medium text-[15px] leading-[15px] mt-5">Ces formations peuvent être réalisées en visio-conférence ou en physique.</span>
                         </div>
                         <div className="w-1/2">
@@ -253,13 +273,15 @@ export default function Home() {
                   <a href="#" className="text-primary-50 text-[18px] underline">Instagram</a>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-primary-50 text-[18px] mb-5">Envie d’échanger ?</span>
+                  <span className="font-bold text-primary-50 text-[18px] mb-5">Envie d&apos;échanger ?</span>
                   <button
-                    className="px-5 py-2.5 text-primary-600 bg-primary-50 rounded-[40px] text-[18px] leading-[22px]">Me contacter
+                    className="px-5 py-2.5 text-primary-600 bg-primary-50 rounded-[40px] text-[18px] leading-[22px]">Me
+                    contacter
                   </button>
                 </div>
               </div>
-              <div className="w-full border-t border-primary-600 flex flex-row items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
+              <div
+                className="w-full border-t border-primary-600 flex flex-row items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
                 <span>© 2023 Agreenup</span>
                 <div className="rounded-full w-[6px] h-[6px] bg-primary-200"></div>
                 <a href="#" className="underline">Mentions légales</a>
@@ -270,9 +292,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Modal isOpen={showAboutModal} onClose={() => setShowAboutModal(false)}>
-        <div>dsds</div>
-      </Modal>
+      <AboutModal isOpen={showAboutModal} onClose={() => setShowAboutModal(false)}/>
     </>
   );
 }
