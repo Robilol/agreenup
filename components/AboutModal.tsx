@@ -186,7 +186,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       </div>
                       <div className="flex flex-col gap-3">
                         <span
-                          className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">L&apos;amélioration de la fertilité des sols en espaces verts</span>
+                          className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">L&apos;accompagnement du développement des jardins collectifs</span>
                         <p className="text-primary-50 text-[18px] leading-[22px] font-light">« L&apos;accompagnement du
                           développement des jardins collectifs ». Les objectifs visés sont la création des jardins
                           collectifs différents, les accompagnements techniques (aménagement, viabilisation du site,

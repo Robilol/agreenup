@@ -3,11 +3,15 @@ import Image from "next/image";
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import cx from 'classnames'
 import AboutModal from "@/components/AboutModal";
+import MentionsModal from "@/components/MentionsModal";
+import CgvModal from "@/components/CgvModal";
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
   const [showAboutModal, setShowAboutModal] = useState<boolean>(false)
+  const [showMentionsModal, setMentionsModal] = useState<boolean>(false)
+  const [showCgvModal, setCgvModal] = useState<boolean>(false)
 
   useLayoutEffect(() => {
     const onScroll = () => {
@@ -110,12 +114,11 @@ export default function Home() {
                     </div>
                     <div className="w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
                   </div>
-                  <div className="border-2 border-b-0 border-primary-900 px-12 py-24 flex gap-10">
-                    <div className="grid grid-cols-2 gap-5 w-1/2">
-                      <img src="http://placekitten.com/255/255" alt=""/>
-                      <img src="http://placekitten.com/255/255" alt=""/>
-                      <img src="http://placekitten.com/255/255" alt=""/>
-                      <img src="http://placekitten.com/255/255" alt=""/>
+                  <div className="border-2 border-b-0 border-primary-900 px-12 py-24 flex gap-[50px]">
+                    <div className="w-1/2">
+                      <div className="w-[470px] h-[470px] relative">
+                        <Image src="/img/img-permaculture@2x.png" alt="" fill/>
+                      </div>
                     </div>
                     <div className="w-1/2 space-y-3">
                       <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
@@ -151,10 +154,10 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div id="about" className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-32">
+              <div id="about" className="border-primary-900 border-2 border-b-0 pt-40 pb-24 pl-40 pr-60 flex gap-16">
                 <div className="w-1/2 items-center flex">
                   <div className="text-primary-900">
-                    <span className="text-[44px] leading-[54px] mb-5 block w-80 font-sporting-grotesque">Je suis Laurent Jarozs, formateur et passionné</span>
+                    <span className="text-[44px] leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</span>
                     <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardinage ce qui fait de moi un
                       passionné de permaculture depuis mon enfance. J&apos;ai à coeur de transmettre ma passion pour
                       préserver
@@ -284,15 +287,17 @@ export default function Home() {
                 className="w-full border-t border-primary-600 flex flex-row items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
                 <span>© 2023 Agreenup</span>
                 <div className="rounded-full w-[6px] h-[6px] bg-primary-200"></div>
-                <a href="#" className="underline">Mentions légales</a>
+                <button onClick={() => setMentionsModal(true)} className="underline">Mentions légales</button>
                 <div className="rounded-full w-[6px] h-[6px] bg-primary-200"></div>
-                <a href="#" className="underline">Politique de confidentialité</a>
+                <button onClick={() => setCgvModal(true)} className="underline">Conditions générales de vente</button>
               </div>
             </div>
           </div>
         </div>
       </main>
       <AboutModal isOpen={showAboutModal} onClose={() => setShowAboutModal(false)}/>
+      <MentionsModal isOpen={showMentionsModal} onClose={() => setMentionsModal(false)}/>
+      <CgvModal isOpen={showCgvModal} onClose={() => setCgvModal(false)}/>
     </>
   );
 }
