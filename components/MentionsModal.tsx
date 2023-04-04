@@ -27,7 +27,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto" ref={scrollContent}>
-          <div className="flex min-h-full items-center justify-center p-[50px]">
+          <div className="flex min-h-full items-center justify-center p-5 md:p-[50px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -41,7 +41,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                 className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all">
                 <Dialog.Title
                   as="div"
-                  className="flex flex-row items-center justify-between text-primary-50 p-[50px] border-b-2 border-primary-800"
+                  className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px] border-b-2 border-primary-800"
                 >
                   <span className="font-sporting-grotesque font-bold text-[18px]">Mentions légales</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
@@ -52,7 +52,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                     </div>
                   </button>
                 </Dialog.Title>
-                <div className="p-[50px] relative">
+                <div className="p-5 pb-20 md:p-[50px] relative">
                   <span
                     className="text-primary-50 text-[38px] leading-[44px] font-sporting-grotesque">Mentions légales</span>
                   <div className="text-primary-50 font-light space-y-5 mt-5 mb-10">
