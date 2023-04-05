@@ -5,6 +5,7 @@ import cx from 'classnames'
 import AboutModal from "@/components/AboutModal";
 import MentionsModal from "@/components/MentionsModal";
 import CgvModal from "@/components/CgvModal";
+import MenuModal from "@/components/MenuModal";
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement | null>(null)
@@ -12,6 +13,7 @@ export default function Home() {
   const [showAboutModal, setShowAboutModal] = useState<boolean>(false)
   const [showMentionsModal, setMentionsModal] = useState<boolean>(false)
   const [showCgvModal, setCgvModal] = useState<boolean>(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   useLayoutEffect(() => {
     const onScroll = () => {
@@ -49,8 +51,8 @@ export default function Home() {
       <main className="font-['HK_Grotesk']">
         <div className="z-[1] relative p-[20px] md:p-[50px]">
           <div className="max-w-[1380px]">
-            <div className={cx("border-primary-900 border-2 fixed flex items-center bg-transparent transition w-full md:w-auto", {
-              'bg-white': isScrolled
+            <div className={cx("border-primary-900 border-2 fixed flex items-center md:ansparent transition w-[calc(100%-40px)] md:w-auto", {
+              'bg-primary-50': isScrolled
             })}>
               <div className="px-5 py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-[20px] md:text-3xl">
                 Agreenup
@@ -68,16 +70,18 @@ export default function Home() {
                   behavior: 'smooth'
                 })}>Les formations
                 </button>
-                <button className="px-5 py-1.5 bg-primary-600 text-white rounded-[40px]">Réserver une formation
+                <button className="px-5 py-1.5 bg-primary-600 text-primary-50 rounded-[40px]">Réserver une formation
                 </button>
               </div>
-              <div className="md:hidden w-full">
-                Menu
+              <div className="md:hidden w-full flex justify-end px-5">
+                <button onClick={() => setShowMenu(true)} className="text-[18px] leading-[22px] text-primary-900 font-bold underline">
+                  Menu
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="backdrop-blur-[75px] bg-white/50 fixed inset-0 overflow-y-auto" ref={contentRef}>
+        <div className="backdrop-blur-[75px] bg-primary-50/50 fixed inset-0 overflow-y-auto" ref={contentRef}>
           <div className='p-[20px] md:p-[50px]'>
             <div className="max-w-[1380px] w-full relative flex flex-col">
               <div className="border-primary-900 border-2 border-b-0 pt-28 pb-6 pl-6 pr-6 md:pt-40 md:pb-24 md:pl-40 md:pr-60 flex flex-col md:flex-row gap-[50px] md:gap-32">
@@ -88,7 +92,7 @@ export default function Home() {
                     <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
                       résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
                     <button
-                      className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] w-fulls">Réserver
+                      className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-fulls">Réserver
                       une formation
                     </button>
                   </div>
@@ -166,7 +170,7 @@ export default function Home() {
                       préserver
                       la biodiversité et les générations futures. </p>
                     <button onClick={() => setShowAboutModal(true)}
-                            className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8">En savoir plus
+                            className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8">En savoir plus
                     </button>
                   </div>
                 </div>
@@ -192,7 +196,7 @@ export default function Home() {
                   </div>
                   <div className="border-2 border-primary-900 flex flex-col">
                     <div className="bg-primary-900 p-2.5 flex justify-center">
-                      <span className="text-[15px] leading-[18px] text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
+                      <span className="text-[15px] leading-[18px] text-center md:text-left text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
                     </div>
                     <div className="flex flex-col md:flex-row w-full">
                       <div className="w-full md:w-1/2 px-4 py-8 md:p-24 flex flex-col items-center">
@@ -217,7 +221,7 @@ export default function Home() {
                           <li>Produire ses graines et les conserver.</li>
                         </ul>
                         <button
-                          className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] w-full">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-full">Réserver
                         </button>
                       </div>
                       <div className="w-full md:w-1/2 px-4 py-8 md:p-24 flex flex-col items-center border-t-2 md:border-t-0  md:border-l-2 border-primary-900">
@@ -239,7 +243,7 @@ export default function Home() {
                           <li>Fertiliser naturellement ses plantes d&apos;intérieur dès le printemps.</li>
                         </ul>
                         <button
-                          className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] mt-8 text-[18px] leading-[22px] md:mt-[130px] w-full">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] md:mt-[130px] w-full">Réserver
                         </button>
                       </div>
                     </div>
@@ -255,7 +259,7 @@ export default function Home() {
                         </div>
                         <div className="w-full md:w-1/2">
                           <button
-                            className="px-5 py-2.5 bg-primary-600 text-white rounded-[40px] text-[18px] leading-[22px] mt-10 w-full">Demander
+                            className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full">Demander
                             un devis
                           </button>
                         </div>
@@ -301,6 +305,15 @@ export default function Home() {
       <AboutModal isOpen={showAboutModal} onClose={() => setShowAboutModal(false)}/>
       <MentionsModal isOpen={showMentionsModal} onClose={() => setMentionsModal(false)}/>
       <CgvModal isOpen={showCgvModal} onClose={() => setCgvModal(false)}/>
+      <MenuModal isOpen={showMenu} onClose={() => setShowMenu(false)} onLinkClick={(anchor) => {
+        document?.querySelector(anchor)?.scrollIntoView({
+          behavior: 'smooth'
+        })
+        setTimeout(() => {
+          setShowMenu(false)
+        }, 1000)
+      }
+      }/>
     </>
   );
 }
