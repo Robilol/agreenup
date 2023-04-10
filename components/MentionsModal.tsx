@@ -26,8 +26,8 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
           <div className="fixed inset-0 bg-black/30 backdrop-blur-[40px]"/>
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto" ref={scrollContent}>
-          <div className="flex min-h-full items-center justify-center p-5 md:p-[50px]">
+        <div className="fixed inset-0">
+          <div className="flex items-center justify-center p-5 md:p-[50px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -38,7 +38,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all">
+                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px] border-b-2 border-primary-800"
@@ -52,10 +52,10 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                     </div>
                   </button>
                 </Dialog.Title>
-                <div className="p-5 pb-20 md:p-[50px] relative">
+                <div className="p-5 pb-10 md:p-[50px] relative overflow-y-auto max-h-[80vh] md:max-h-[83vh]" ref={scrollContent}>
                   <span
                     className="text-primary-50 text-[38px] leading-[44px] font-sporting-grotesque">Mentions légales</span>
-                  <div className="text-primary-50 font-light space-y-5 mt-5 mb-10">
+                  <div className="text-primary-50 font-light space-y-5 mt-5 mb-10 text-[18px]">
                     <p>Le site agreenup.fr est édité par [nom de la société éditrice], société par actions simplifiée au
                       capital de [montant du capital social] euros, immatriculée au Registre du Commerce et des Sociétés
                       de [ville d&apos;immatriculation] sous le numéro [numéro d&apos;immatriculation]. Son siège social
@@ -70,7 +70,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       l&apos;hébergeur],
                       [adresse e-mail de l&apos;hébergeur]</p>
 
-                    <span className="text-xl block font-bold">CONDITIONS D&apos;UTILISATION</span>
+                    <span className="block font-sporting-grotesque font-bold">Conditions d&apos;utilisation</span>
 
                     <p>L&apos;utilisation du site agreenup.fr implique l&apos;acceptation pleine et entière des
                       conditions
@@ -80,7 +80,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       complétées à tout moment, les utilisateurs du site agreenup.fr sont donc invités à les consulter
                       régulièrement.</p>
 
-                    <span className="text-xl block font-bold">PROPRIÉTÉ INTELLECTUELLE</span>
+                    <span className="font-sporting-grotesque block font-bold">Propriété intellectuelle</span>
 
                     <p>Tous les éléments du site agreenup.fr, qu&apos;ils soient visuels ou sonores, y compris la
                       technologie
@@ -91,33 +91,32 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie de ces éléments, sans
                       l&apos;accord préalable et écrit de [nom de la société éditrice] est strictement interdite.</p>
 
-                    <span className="text-xl block font-bold">DONNÉES PERSONNELLES</span>
+                    <span className="font-sporting-grotesque block font-bold">Données personnelles</span>
 
                     <p>Les données personnelles collectées sur le site agreenup.fr sont traitées conformément à la
                       réglementation en vigueur. Pour en savoir plus sur notre politique de confidentialité et de
                       protection des données personnelles, veuillez consulter notre politique de confidentialité
                       accessible depuis la page d&apos;accueil du site.</p>
 
-                    <span className="text-xl block font-bold">COOKIES</span>
+                    <span className="font-sporting-grotesque block font-bold">Cookies</span>
 
                     <p>Le site agreenup.fr peut utiliser des cookies pour faciliter la navigation et améliorer
                       l&apos;expérience utilisateur. Pour en savoir plus sur notre utilisation des cookies, veuillez
                       consulter
                       notre politique de cookies accessible depuis la page d&apos;accueil du site.</p>
 
-                    <span className="text-xl block font-bold">DROIT APPLICABLE ET JURIDICTION</span>
+                    <span className="font-sporting-grotesque block font-bold">Droit applicable et juridiction</span>
 
                     <p>Tout litige en relation avec l&apos;utilisation du site agreenup.fr est soumis au droit français.
                       Il est
                       fait attribution exclusive de juridiction aux tribunaux compétents de [ville du siège social de la
                       société éditrice].</p>
                   </div>
-
-                  <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}
-                          className="absolute right-[50px] bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
-                    <ArrowSmallUpIcon className="w-10 h-10 text-primary-700"/>
-                  </button>
                 </div>
+                <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}
+                        className="absolute right-[20px] bottom-[20px] md:right-[50px] md:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
+                  <ArrowSmallUpIcon className="w-10 h-10 text-primary-700"/>
+                </button>
               </Dialog.Panel>
             </Transition.Child>
           </div>

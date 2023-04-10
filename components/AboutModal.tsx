@@ -26,8 +26,8 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
           <div className="fixed inset-0 bg-black/30 backdrop-blur-[40px]"/>
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto" ref={scrollContent}>
-          <div className="flex min-h-full items-center justify-center p-5 md:p-[50px]">
+        <div className="fixed inset-0">
+          <div className="flex items-center justify-center p-5 md:p-[50px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -38,7 +38,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all">
+                className="w-full transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all  font-hk-grotesk">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px] border-b-2 border-primary-800"
@@ -52,7 +52,8 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                     </div>
                   </button>
                 </Dialog.Title>
-                <div className="p-5 pb-20 md:p-[50px] relative">
+                <div className="p-5 pb-20 md:p-[50px] relative overflow-y-auto max-h-[80vh] md:max-h-[83vh]"
+                     ref={scrollContent}>
                   <span
                     className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque">Le cheminement d&apos;une vie</span>
                   <div className="flex flex-col md:flex-row gap-[50px] mt-5">
@@ -118,7 +119,8 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   </div>
                   <hr className="border-primary-800 my-[50px]"/>
                   <div className="flex flex-col items-center gap-2.5">
-                    <span className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque text-center">La passion de transmettre</span>
+                    <span
+                      className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque text-center">La passion de transmettre</span>
                     <span className="text-primary-50 text-[22px] leading-[26px] text-center">J&apos;interviens au Centre National de la Fonction Publique<br/>Territoriale où je donne trois stages.</span>
                   </div>
                   <div className="flex flex-col md:flex-row gap-[50px] mt-[50px]">
@@ -131,30 +133,13 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       <div className="flex flex-col gap-3">
                         <span className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">La connaissance du fonctionnement écologique des sols en interaction avec les plantes et le climat</span>
                         <p className="text-primary-50 text-[18px] leading-[22px] font-light">Un stage qui résume
-                          l&apos;ensemble des interactions entre les acteurs de la biodiversité des sols
-                          en lien avec sa texture et sa structure et le climat. Les relations entre les propriétés
-                          physiques, biologiques et chimiques des sols comme les amendements et les fertilisations
-                          naturelles, C.A.H, le Ph, le C.E.C, humidifications de la matière organique, le potentiel
-                          &quot;rédox&quot;. Les techniques de régulation de l&apos;eau dans le sol. Les sols
-                          reconstitués en milieu
+                          l&apos;ensemble des interactions entre les acteurs de la biodiversité des sols en lien avec sa
+                          texture et sa structure et le climat. Les relations entre les propriétés physiques,
+                          biologiques et chimiques des sols comme les amendements et les fertilisations naturelles,
+                          C.A.H, le Ph, le C.E.C, humidifications de la matière organique, le
+                          potentiel &quot;rédox&quot;. Les
+                          techniques de régulation de l&apos;eau dans le sol. Les sols reconstitués en milieu
                           urbain.</p>
-                        <div>
-                          <span className="text-primary-50 text-[15px] leading-[18px]">Contenu</span>
-                          <ul
-                            className="list-disc text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                            <li>Les propriétés physiques, chimiques et biologiques des sols (texture, structure, PH et
-                              faune du sol),
-                            </li>
-                            <li>Le fonctionnement du sol (CEC, humidification, minéralisation, mouvement de
-                              l&aposeau),
-                            </li>
-                            <li>La qualité biologique d&apos;un sol,</li>
-                            <li>La relation sol/plante,</li>
-                            <li>Les interventions et impacts : travail du sol, paillage, amendements et fumures,</li>
-                            <li>Les techniques de régulation de l&apos;eau dans le sol,</li>
-                            <li>Les sols reconstitués en milieu urbain.</li>
-                          </ul>
-                        </div>
                       </div>
                       <div className="flex flex-col gap-3">
                         <span
@@ -164,89 +149,37 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                           et biologiques. Des analyses de sol sont réalisées avec des méthodes de prélèvements.
                           Des plans de fumure en amendements et en fertilisation sont intégrés et des méthodes
                           d&apos;analyses sont réalisées avec l&apos;interprétation des résultats.</p>
-                        <div>
-                          <span className="text-primary-50 text-[15px] leading-[18px]">Contenu</span>
-                          <ul
-                            className="list-disc text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                            <li>Les propriétés physiques, chimiques et biologiques des sols (texture, structure, PH et
-                              faune du sol),
-                            </li>
-                            <li>Des rappels sur les besoins nutritifs des végétaux,</li>
-                            <li>La connaissance des sols : le sol : milieu physique, chimique, biologique,</li>
-                            <li>L&apos;analyse du sol : éléments à analyser, méthodes de prélèvement, méthodes
-                              d&apos;analyse,
-                              interprétation des résultats.
-                            </li>
-                            <li>L&apos;amendement et la fertilisation : les engrais, plans de fumure et
-                              d&apos;amendement,
-                            </li>
-                            <li>Le cas particulier des pelouses sportives.</li>
-                          </ul>
-                        </div>
                       </div>
                       <div className="flex flex-col gap-3">
                         <span
                           className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">L&apos;accompagnement du développement des jardins collectifs</span>
-                        <p className="text-primary-50 text-[18px] leading-[22px] font-light">« L&apos;accompagnement du
-                          développement des jardins collectifs ». Les objectifs visés sont la création des jardins
-                          collectifs différents, les accompagnements techniques (aménagement, viabilisation du site,
-                          suivi des projets).Les conseils en animations horticoles (techniques de maraîchage et
-                          d&apos;éco-jardinage, potager en carré, et la médiation).</p>
-                        <div>
-                          <span className="text-primary-50 text-[15px] leading-[18px]">Contenu</span>
-                          <ul
-                            className="list-decimal text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                            <li><span>Les différents type de jardins</span>
-                              <ul
-                                className="list-disc text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                                <li>Pédagoqiques</li>
-                                <li>Partagés</li>
-                                <li>Familiaux</li>
-                                <li>Solidaires</li>
-                                <li>D&apos;insertion</li>
-                              </ul>
-                            </li>
-                            <li><span>Les accompagnements techniques</span>
-                              <ul
-                                className="list-disc text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                                <li>Aménagements</li>
-                                <li>Viabilisation et maintenance des sites</li>
-                                <li>Mise à disposition de matériels, etc</li>
-                                <li>Suivi des projets</li>
-                              </ul>
-                            </li>
-                            <li><span>Les conseils et animations horticoles</span>
-                              <ul
-                                className="list-disc text-primary-50 text-[15px] leading-[18px] px-5 font-light space-y-1">
-                                <li>Techniques de maraîchage et d&apos;éco jardinage</li>
-                                <li>Potager en carré</li>
-                                <li>La médiation</li>
-                                <li>Suivi des projets</li>
-                              </ul>
-                            </li>
-                            <li><span>Visite d&apos;un jardin collectif</span></li>
-                          </ul>
-                        </div>
+                        <p className="text-primary-50 text-[18px] leading-[22px] font-light">Les objectifs visés sont la
+                          création des jardins collectifs différents comme les jardins pédagogiques, partagés,
+                          familiaux, solidaires ou d’insertions avec les accompagnements techniques (aménagement,
+                          viabilisation du site, suivi des projets). Les conseils en animations horticoles sont basés
+                          sur les techniques de maraîchage et d’éco-jardinage, les potagers en carré en lien avec de la
+                          médiation en visite dans un jardin collectif.</p>
                       </div>
                     </div>
                   </div>
                   <hr className="border-primary-800 my-[50px]"/>
                   <div className="w-full text-center mb-5">
-                    <span className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque">Des bases solides</span>
+                    <span
+                      className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque">Des bases solides</span>
                   </div>
                   <div className="flex flex-col md:flex-row gap-[50px]">
                     <div className="w-full md:w-2/3 text-right space-y-5 order-2 md:order-1">
                       <div className="flex flex-col">
                         <span className="text-primary-50 font-bold text-[18px] leading-[22px]">Brevet de technicien agricole (BTA), Productions Florales</span>
-                        <span className="text-primary-50 text-[15px] leading-[18px]">Lycée Agricole Saint Germain en Laye</span>
+                        <span className="text-primary-100 text-[15px] leading-[18px]">Lycée Agricole Saint Germain en Laye</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="text-primary-50 font-bold text-[18px] leading-[22px]">Brevet enseignement agricole, Productions florales</span>
-                        <span className="text-primary-50 text-[15px] leading-[18px]">Brie Comte Robert</span>
+                        <span className="text-primary-100 text-[15px] leading-[18px]">Brie Comte Robert</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="text-primary-50 font-bold text-[18px] leading-[22px]">Attestation, Ecole de Permaculture en micro-ferme</span>
-                        <span className="text-primary-50 text-[15px] leading-[18px]">Permaculture de Vernansault (Prés de la Roche-sur-Yon)</span>
+                        <span className="text-primary-100 text-[15px] leading-[18px]">Permaculture de Vernansault (Prés de la Roche-sur-Yon)</span>
                       </div>
                     </div>
                     <div className="w-full md:w-1/3 order-1 md:order-2">
@@ -255,10 +188,11 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       </div>
                     </div>
                   </div>
-                  <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})} className="absolute right-5 bottom-5 md:right-[50px] md:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
-                    <ArrowSmallUpIcon className="w-10 h-10 text-primary-700" />
-                  </button>
                 </div>
+                <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}
+                        className="absolute right-[20px] bottom-[20px] md:right-[50px] md:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
+                  <ArrowSmallUpIcon className="w-10 h-10 text-primary-700"/>
+                </button>
               </Dialog.Panel>
             </Transition.Child>
           </div>
