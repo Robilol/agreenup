@@ -6,6 +6,7 @@ import AboutModal from "@/components/AboutModal";
 import MentionsModal from "@/components/MentionsModal";
 import CgvModal from "@/components/CgvModal";
 import MenuModal from "@/components/MenuModal";
+import RandomMovingSplash from "@/components/RandomMovingSplash";
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement | null>(null)
@@ -48,7 +49,7 @@ export default function Home() {
         <link href="https://fonts.cdnfonts.com/css/hk-groteks" rel="stylesheet"/>
         <link href="https://fonts.cdnfonts.com/css/sporting-grotesque" rel="stylesheet"/>
       </Head>
-      <main className="font-['HK_Grotesk']">
+      <main className="font-hk-grotesk">
         <div className="z-[1] relative p-[20px] sm:p-[50px]">
           <div className="max-w-[1380px] mx-auto">
             <div
@@ -86,7 +87,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="backdrop-blur-[75px] bg-primary-50/50 fixed inset-0 overflow-y-auto" id="main" ref={contentRef}>
+        <div className="fixed inset-0">
+          <RandomMovingSplash width={271} height={256} img="/vector-1.svg" left={0} top={0} />
+          <RandomMovingSplash width={402} height={365} img="/vector-2.svg" left={200} top={200} />
+          <RandomMovingSplash width={472} height={429} img="/vector-3.svg" left={400} top={400} />
+          <RandomMovingSplash width={650} height={501} img="/vector-4.svg" left={600} top={600} />
+          <RandomMovingSplash width={300} height={231} img="/vector-5.svg" left={200} top={400} />
+          <RandomMovingSplash width={506} height={470} img="/vector-6.svg" left={800} top={100} />
+        </div>
+        <div className="backdrop-blur-[75px] bac bg-primary-50/50 fixed inset-0 overflow-y-auto" id="main" ref={contentRef}>
           <div className='p-[20px] sm:p-[50px]'>
             <div className="max-w-[1380px] w-full relative flex flex-col mx-auto">
               <div
