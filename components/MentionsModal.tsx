@@ -27,7 +27,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
         </Transition.Child>
 
         <div className="fixed inset-0">
-          <div className="flex items-center justify-center p-5 md:p-[50px]">
+          <div className="flex items-center justify-center p-5 sm:p-[50px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -41,7 +41,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                 className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
                 <Dialog.Title
                   as="div"
-                  className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px] border-b-2 border-primary-800"
+                  className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px] border-b-2 border-primary-800"
                 >
                   <span className="font-sporting-grotesque font-bold text-[18px]">Mentions légales</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
@@ -52,7 +52,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                     </div>
                   </button>
                 </Dialog.Title>
-                <div className="p-5 pb-10 md:p-[50px] relative overflow-y-auto max-h-[80vh] md:max-h-[83vh]" ref={scrollContent}>
+                <div className="p-5 pb-10 sm:p-[50px] relative overflow-y-auto max-h-[80vh] sm:max-h-[83vh]" ref={scrollContent}>
                   <span
                     className="text-primary-50 text-[38px] leading-[44px] font-sporting-grotesque">Mentions légales</span>
                   <div className="text-primary-50 font-light space-y-5 mt-5 mb-10 text-[18px]">
@@ -114,7 +114,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   </div>
                 </div>
                 <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}
-                        className="absolute right-[20px] bottom-[20px] md:right-[50px] md:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
+                        className="absolute right-[20px] bottom-[20px] sm:right-[50px] sm:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
                   <ArrowSmallUpIcon className="w-10 h-10 text-primary-700"/>
                 </button>
               </Dialog.Panel>

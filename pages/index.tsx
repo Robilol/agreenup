@@ -49,18 +49,18 @@ export default function Home() {
         <link href="https://fonts.cdnfonts.com/css/sporting-grotesque" rel="stylesheet"/>
       </Head>
       <main className="font-['HK_Grotesk']">
-        <div className="z-[1] relative p-[20px] md:p-[50px]">
+        <div className="z-[1] relative p-[20px] sm:p-[50px]">
           <div className="max-w-[1380px] mx-auto">
             <div
-              className={cx("border-primary-900 border-2 fixed flex items-center md:ansparent transition w-[calc(100%-40px)] md:w-auto md:-mx-[7px]", {
+              className={cx("border-primary-900 border-2 fixed flex items-center transition w-[calc(100%-40px)] sm:w-[calc(100%-100px)] lg:w-auto xl:-mx-[7px]", {
                 'bg-primary-50': isScrolled
               })}>
               <button
                 onClick={() => document?.querySelector('#main')?.scrollTo({top: 0, behavior: 'smooth'})}
-                className="pl-6 pr-[25px] py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-[20px] md:text-3xl">
+                className="pl-6 pr-[25px] py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-[20px] sm:text-3xl">
                 Agreenup
               </button>
-              <div className="hidden px-5 py-2 text-primary-900 font-bold md:flex space-x-10 items-center text-lg">
+              <div className="hidden px-5 py-2 text-primary-900 font-bold custom:flex space-x-10 items-center text-lg">
                 <button onClick={() => document?.querySelector('#permaculture')?.scrollIntoView({
                   behavior: 'smooth'
                 })}>La permaculture
@@ -77,7 +77,7 @@ export default function Home() {
                   formation
                 </button>
               </div>
-              <div className="md:hidden w-full flex justify-end px-5">
+              <div className="custom:hidden w-full flex justify-end px-5">
                 <button onClick={() => setShowMenu(true)}
                         className="text-[18px] leading-[22px] text-primary-900 font-bold underline">
                   Menu
@@ -87,14 +87,14 @@ export default function Home() {
           </div>
         </div>
         <div className="backdrop-blur-[75px] bg-primary-50/50 fixed inset-0 overflow-y-auto" id="main" ref={contentRef}>
-          <div className='p-[20px] md:p-[50px]'>
+          <div className='p-[20px] sm:p-[50px]'>
             <div className="max-w-[1380px] w-full relative flex flex-col mx-auto">
               <div
-                className="border-primary-900 border-2 border-b-0 pt-28 pb-6 pl-6 pr-6 md:pt-40 md:pb-24 md:pl-40 md:pr-60 flex flex-col md:flex-row gap-[50px] md:gap-32">
-                <div className="w-full md:w-1/2 items-center flex order-2 md:order-1">
+                className="border-primary-900 border-2 border-b-0 pt-28 pb-6 pl-6 pr-6 sm:pt-40 sm:pb-24 sm:pl-40 sm:pr-60 flex flex-col sm:flex-row gap-[50px] sm:gap-32">
+                <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
                   <span
-                    className="text-[30px] leading-[42px] md:text-[44px] md:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre la permaculture en 2h</span>
+                    className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre la permaculture en 2h</span>
                     <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
                       résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
                     <button
@@ -103,40 +103,40 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 flex flex-row md:flex-col gap-2.5 md:gap-6 items-center order-1 md:order-2">
-                  <div className="w-[137px] h-[137px] md:w-[323px] md:h-[323px] relative">
+                <div className="w-full sm:w-1/2 flex flex-row sm:flex-col gap-2.5 sm:gap-6 items-center order-1 sm:order-2">
+                  <div className="w-[137px] h-[137px] sm:w-[323px] sm:h-[323px] relative">
                     <Image src="/img/img-home-1@2x.png" alt="" fill/>
                   </div>
-                  <div className="w-[137px] h-[137px] md:w-[323px] md:h-[323px] relative">
+                  <div className="w-[137px] h-[137px] sm:w-[323px] sm:h-[323px] relative">
                     <Image src="/img/img-home-2@2x.png" alt="" fill/>
                   </div>
                 </div>
               </div>
               <div className="flex flex-row w-full">
                 <div className="w-1/2 border-t-2 border-primary-900"></div>
-                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-12 md:h-20"></div>
-                <div className="md:hidden w-6 border-t-2 border-primary-900 h-12 md:h-20"></div>
+                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-12 sm:h-20"></div>
+                <div className="sm:hidden w-6 border-t-2 border-primary-900 h-12 sm:h-20"></div>
               </div>
               <div className="flex w-full justify-center">
-                <div className="px-6 md:px-0 flex flex-col w-full max-w-[1020px] -mt-[2px] -mr-[3px] md:-mr-0">
+                <div className="px-6 sm:px-0 flex flex-col w-full max-w-[1020px] -mt-[2px] -mr-[3px] sm:-mr-0">
                   <div className="w-full flex">
                     <div
                       id="permaculture"
-                      className="w-full md:w-1/2 border-l-2 border-t-2 border-r-2 md:border-r-0 border-primary-900 text-primary-900 flex items-center md:px-7 scroll-mt-[110px]">
+                      className="w-full sm:w-1/2 border-l-2 border-t-2 border-r-2 sm:border-r-0 border-primary-900 text-primary-900 flex items-center sm:px-7 scroll-mt-[110px]">
                       <span
-                        className="text-[30px] leading-[42px] py-4 px-6 md:p-0 text-center md:text-left md:text-[44px] md:leading-[54px] font-sporting-grotesque">La permaculture</span>
+                        className="text-[30px] leading-[42px] py-4 px-6 sm:p-0 text-center sm:text-left sm:text-[44px] sm:leading-[54px] font-sporting-grotesque">La permaculture</span>
                     </div>
-                    <div className="hidden md:block w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
+                    <div className="hidden sm:block w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
                   </div>
                   <div
-                    className="border-2 border-b-0 border-primary-900 px-6 py-12 md:px-12 md:py-24 flex flex-col md:flex-row gap-[50px]">
-                    <div className="w-full md:w-1/2">
+                    className="border-2 border-b-0 border-primary-900 px-6 py-12 sm:px-12 sm:py-24 flex flex-col sm:flex-row gap-[50px]">
+                    <div className="w-full sm:w-1/2">
                       <div
-                        className="w-full h-auto p-[50%] max-w-[255px] max-h-[255px] md:w-[470px] md:h-[470px] relative">
+                        className="w-full h-auto p-[50%] max-w-[255px] max-h-[255px] sm:w-[470px] sm:h-[470px] relative">
                         <Image src="/img/img-permaculture@2x.png" alt="" fill/>
                       </div>
                     </div>
-                    <div className="w-full md:w-1/2 space-y-3">
+                    <div className="w-full sm:w-1/2 space-y-3">
                       <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
                         englobe à la fois une
                         méthode de conception durable pour les systèmes humains et une philosophie de vie. Le
@@ -166,16 +166,16 @@ export default function Home() {
                   </div>
                   <div className="flex flex-row w-full">
                     <div className="w-1/2 border-t-2 border-primary-900"></div>
-                    <div className="w-1/2 border-x-2 border-primary-900 h-12 md:h-20"></div>
+                    <div className="w-1/2 border-x-2 border-primary-900 h-12 sm:h-20"></div>
                   </div>
                 </div>
               </div>
               <div id="about"
-                   className="border-primary-900 border-2 border-b-0 pt-12 pb-6 pl-6 pr-6 md:pt-40 md:pb-24 md:pl-40 md:pr-40 flex flex-col md:flex-row gap-16">
-                <div className="w-full md:w-1/2 items-center flex order-2 md:order-1">
+                   className="border-primary-900 border-2 border-b-0 pt-12 pb-6 pl-6 pr-6 sm:pt-40 sm:pb-24 sm:pl-40 sm:pr-40 flex flex-col sm:flex-row gap-16">
+                <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
                     <span
-                      className="text-[30px] leading-[42px] md:text-[44px] md:leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</span>
+                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</span>
                     <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de découvrir
                       ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à l&apos;épanouissement
                       des plantes pour obtenir des fleurs nombreuses et colorées. J&apos;ai à cœur de transmettre mes
@@ -187,38 +187,38 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 flex flex-col gap-6 items-center order-1 md:order-2">
-                  <div className="w-[295px] h-[295px] md:w-[485px] md:h-[485px] relative">
+                <div className="w-full sm:w-1/2 flex flex-col gap-6 items-center order-1 sm:order-2">
+                  <div className="w-[295px] h-[295px] sm:w-[485px] sm:h-[485px] relative">
                     <Image src="/img/img-about@2x.png" alt="" fill/>
                   </div>
                 </div>
               </div>
               <div className="flex flex-row w-full">
-                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-12 md:h-20"></div>
+                <div className="w-1/2 border-x-2 border-b-2 border-primary-900 h-12 sm:h-20"></div>
                 <div className="w-1/2 border-t-2 border-primary-900"></div>
               </div>
               <div className="flex w-full justify-center">
-                <div className="px-6 md:px-0 flex flex-col w-full max-w-[1020px] -mt-[2px]">
+                <div className="px-6 sm:px-0 flex flex-col w-full max-w-[1020px] -mt-[2px]">
                   <div className="w-full flex">
-                    <div className="hidden md:block w-1/2 border-r-2 border-b-0 border-primary-900 h-20"></div>
+                    <div className="hidden sm:block w-1/2 border-r-2 border-b-0 border-primary-900 h-20"></div>
                     <div
                       id="formations"
-                      className="w-full md:w-1/2 border-l-2 md:border-l-0 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
+                      className="w-full sm:w-1/2 border-l-2 sm:border-l-0 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
                       <span
-                        className="text-center md:text-left text-[30px] leading-[42px] md:text-[44px] md:leading-[54px] py-4 px-6 md:p-0 font-sporting-grotesque">Les formations</span>
+                        className="text-center sm:text-left text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] py-4 px-6 sm:p-0 font-sporting-grotesque">Les formations</span>
                     </div>
                   </div>
                   <div className="border-2 border-primary-900 flex flex-col">
                     <div className="bg-primary-900 p-2.5 flex justify-center">
                       <span
-                        className="text-[15px] leading-[18px] text-center md:text-left text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
+                        className="text-[15px] leading-[18px] text-center sm:text-left text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
                     </div>
-                    <div className="flex flex-col md:flex-row w-full">
-                      <div className="w-full md:w-1/2 px-4 py-8 md:p-24 flex flex-col items-center">
+                    <div className="flex flex-col sm:flex-row w-full">
+                      <div className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center">
                       <span
-                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 md:mb-[50px] text-center md:text-left">Un jardin en autonomie</span>
+                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Un jardin en autonomie</span>
                         <span
-                          className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px]">25 €</span>
+                          className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
                         <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée en 1h30, puis temps d&apos;échange de 30 minutes pour répondre à vos questions.</span>
                         <ul
@@ -240,9 +240,9 @@ export default function Home() {
                         </button>
                       </div>
                       <div
-                        className="w-full md:w-1/2 px-4 py-8 md:p-24 flex flex-col items-center border-t-2 md:border-t-0  md:border-l-2 border-primary-900">
+                        className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center border-t-2 sm:border-t-0  sm:border-l-2 border-primary-900">
                       <span
-                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 md:mb-[50px] text-center md:text-left">Les plantes à la maison</span>
+                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Les plantes à la maison</span>
                         <span
                           className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
@@ -259,21 +259,21 @@ export default function Home() {
                           <li>Fertiliser naturellement ses plantes d&apos;intérieur dès le printemps.</li>
                         </ul>
                         <button
-                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] md:mt-[130px] w-full font-bold">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-[130px] w-full font-bold">Réserver
                         </button>
                       </div>
                     </div>
-                    <div className="border-t-2 border-primary-900 px-4 py-8 md:p-24 flex flex-col">
+                    <div className="border-t-2 border-primary-900 px-4 py-8 sm:p-24 flex flex-col">
                       <span
-                        className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px]">Sur-mesure</span>
+                        className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">Sur-mesure</span>
                       <span className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">Vous êtes une école, un collège, un lycée, un particulier, un groupe… ?</span>
-                      <div className="mt-6 md:mt-[50px] flex flex-col md:flex-row md:gap-32">
-                        <div className="w-full md:w-1/2 text-primary-900 flex flex-col">
+                      <div className="mt-6 sm:mt-[50px] flex flex-col sm:flex-row sm:gap-32">
+                        <div className="w-full sm:w-1/2 text-primary-900 flex flex-col">
                           <span className="text-[18px] leading-[22px]">Vous souhaitez réaliser une formation de permaculture selon certaines conditions ?</span>
                           <span className="font-medium text-[15px] leading-[15px] mt-2.5">Je m&apos;adapte à vos besoins en réalisant des formations sur-mesures.</span>
                           <span className="font-medium text-[15px] leading-[15px] mt-5">Ces formations peuvent être réalisées en visio-conférence ou en physique.</span>
                         </div>
-                        <div className="w-full md:w-1/2">
+                        <div className="w-full sm:w-1/2">
                           <button
                             className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full font-bold">Demander
                             un devis
@@ -287,8 +287,8 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-primary-900">
-            <div className="max-w-[1020px] px-10 pt-5 md:px-0 w-full relative flex flex-col mx-auto md:pt-[50px]">
-              <div className="w-full flex flex-col md:flex-row gap-[50px]">
+            <div className="max-w-[1020px] px-10 pt-5 sm:px-0 w-full relative flex flex-col mx-auto sm:pt-[50px]">
+              <div className="w-full flex flex-col sm:flex-row gap-[50px]">
                 <div className="flex flex-col">
                   <span className="font-bold text-primary-50 text-[18px] mb-5">Agreenup</span>
                   <span className="text-primary-50 text-[18px]">Laurent Jarosz, formateur & freelance</span>
@@ -307,11 +307,11 @@ export default function Home() {
                 </div>
               </div>
               <div
-                className="w-full border-t border-primary-600 flex flex-col md:flex-row items-start md:items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
+                className="w-full border-t border-primary-600 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
                 <span>© 2023 Agreenup</span>
-                <div className="hidden md:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
                 <button onClick={() => setMentionsModal(true)} className="underline">Mentions légales</button>
-                <div className="hidden md:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
                 <button onClick={() => setCgvModal(true)} className="underline">Conditions générales de vente</button>
               </div>
             </div>

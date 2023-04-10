@@ -27,7 +27,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
         </Transition.Child>
 
         <div className="fixed inset-0">
-          <div className="flex items-center justify-center p-5 md:p-[50px]">
+          <div className="flex items-center justify-center p-5 sm:p-[50px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -41,23 +41,23 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                 className="w-full transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all  font-hk-grotesk">
                 <Dialog.Title
                   as="div"
-                  className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px] border-b-2 border-primary-800"
+                  className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px] border-b-2 border-primary-800"
                 >
-                  <span className="font-sporting-grotesque font-bold text-[14px] md:text-[18px]">Mon parcours</span>
+                  <span className="font-sporting-grotesque font-bold text-[14px] sm:text-[18px]">Mon parcours</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
-                    <span className="font-bold text-[14px] md:text-[18px]">Fermer</span>
+                    <span className="font-bold text-[14px] sm:text-[18px]">Fermer</span>
                     <div
                       className="bg-primary-800 rounded-[48px] rounded-bl-[0px] flex items-center justify-center w-[32px] h-[32px]">
                       <XMarkIcon className="w-5 h-5"/>
                     </div>
                   </button>
                 </Dialog.Title>
-                <div className="p-5 pb-20 md:p-[50px] relative overflow-y-auto max-h-[80vh] md:max-h-[83vh]"
+                <div className="p-5 pb-20 sm:p-[50px] relative overflow-y-auto max-h-[80vh] sm:max-h-[83vh]"
                      ref={scrollContent}>
                   <span
-                    className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque">Le cheminement d&apos;une vie</span>
-                  <div className="flex flex-col md:flex-row gap-[50px] mt-5">
-                    <div className="w-full md:w-1/3 text-primary-50 text-[18px] leading-[22px] space-y-5 font-light">
+                    className="text-primary-50 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px] font-sporting-grotesque">Le cheminement d&apos;une vie</span>
+                  <div className="flex flex-col sm:flex-row gap-[50px] mt-5">
+                    <div className="w-full sm:w-1/3 text-primary-50 text-[18px] leading-[22px] space-y-5 font-light">
                       <p>Je suis natif de Bar sur Aube (Aube), très jeune mes parents m&apos;ont initié au jardinage,
                         j&apos;ai
                         découvert rapidement ma passion pour l&apos;évolution des plantes et je recherchais des
@@ -90,7 +90,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                         les déchets verts.
                       </p>
                     </div>
-                    <div className="w-full md:w-1/3 text-primary-50 text-[18px] leading-[22px] space-y-5 font-light">
+                    <div className="w-full sm:w-1/3 text-primary-50 text-[18px] leading-[22px] space-y-5 font-light">
                       <p>
                         Le prix de revient est intéressant et leur méthode de conservation peuvent être variées et est
                         possible sans énergie aussi. Le temps passé s&apos;oriente surtout sur les récoltes, seulement
@@ -111,8 +111,8 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                         collaboration en I.M.E, SEGPA, et enseignements généraux dans différents ateliers.
                       </p>
                     </div>
-                    <div className="w-full md:w-1/3">
-                      <div className="w-[295px] h-[295px] md:w-[380px] md:h-[380px] relative">
+                    <div className="w-full sm:w-1/3">
+                      <div className="w-[295px] h-[295px] sm:w-[380px] sm:h-[380px] relative">
                         <Image src="/img/img-about-details-1@2x.png" alt="" fill/>
                       </div>
                     </div>
@@ -120,16 +120,16 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   <hr className="border-primary-800 my-[50px]"/>
                   <div className="flex flex-col items-center gap-2.5">
                     <span
-                      className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque text-center">La passion de transmettre</span>
+                      className="text-primary-50 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px] font-sporting-grotesque text-center">La passion de transmettre</span>
                     <span className="text-primary-50 text-[22px] leading-[26px] text-center">J&apos;interviens au Centre National de la Fonction Publique<br/>Territoriale où je donne trois stages.</span>
                   </div>
-                  <div className="flex flex-col md:flex-row gap-[50px] mt-[50px]">
-                    <div className="w-full md:w-1/3">
-                      <div className="w-[295px] h-[615px] md:w-[380px] md:h-[785px] relative">
+                  <div className="flex flex-col sm:flex-row gap-[50px] mt-[50px]">
+                    <div className="w-full sm:w-1/3">
+                      <div className="w-[295px] h-[615px] sm:w-[380px] sm:h-[785px] relative">
                         <Image src="/img/img-about-details-2@2x.png" alt="" fill/>
                       </div>
                     </div>
-                    <div className="w-full md:w-2/3 gap-[50px] flex flex-col">
+                    <div className="w-full sm:w-2/3 gap-[50px] flex flex-col">
                       <div className="flex flex-col gap-3">
                         <span className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">La connaissance du fonctionnement écologique des sols en interaction avec les plantes et le climat</span>
                         <p className="text-primary-50 text-[18px] leading-[22px] font-light">Un stage qui résume
@@ -165,10 +165,10 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   <hr className="border-primary-800 my-[50px]"/>
                   <div className="w-full text-center mb-5">
                     <span
-                      className="text-primary-50 text-[26px] leading-[36px] md:text-[38px] md:leading-[44px] font-sporting-grotesque">Des bases solides</span>
+                      className="text-primary-50 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px] font-sporting-grotesque">Des bases solides</span>
                   </div>
-                  <div className="flex flex-col md:flex-row gap-[50px]">
-                    <div className="w-full md:w-2/3 text-right space-y-5 order-2 md:order-1">
+                  <div className="flex flex-col sm:flex-row gap-[50px]">
+                    <div className="w-full sm:w-2/3 text-right space-y-5 order-2 sm:order-1">
                       <div className="flex flex-col">
                         <span className="text-primary-50 font-bold text-[18px] leading-[22px]">Brevet de technicien agricole (BTA), Productions Florales</span>
                         <span className="text-primary-100 text-[15px] leading-[18px]">Lycée Agricole Saint Germain en Laye</span>
@@ -182,15 +182,15 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                         <span className="text-primary-100 text-[15px] leading-[18px]">Permaculture de Vernansault (Prés de la Roche-sur-Yon)</span>
                       </div>
                     </div>
-                    <div className="w-full md:w-1/3 order-1 md:order-2">
-                      <div className="w-[295px] h-[295px] md:w-[392px] md:h-[400px] relative">
+                    <div className="w-full sm:w-1/3 order-1 sm:order-2">
+                      <div className="w-[295px] h-[295px] sm:w-[392px] sm:h-[400px] relative">
                         <Image src="/img/img-about-details-3@2x.png" alt="" fill/>
                       </div>
                     </div>
                   </div>
                 </div>
                 <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}
-                        className="absolute right-[20px] bottom-[20px] md:right-[50px] md:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
+                        className="absolute right-[20px] bottom-[20px] sm:right-[50px] sm:bottom-[50px] z-[1] bg-primary-50 w-[50px] h-[50px] flex justify-center items-center rounded-[48px] rounded-tl-[0px] shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
                   <ArrowSmallUpIcon className="w-10 h-10 text-primary-700"/>
                 </button>
               </Dialog.Panel>

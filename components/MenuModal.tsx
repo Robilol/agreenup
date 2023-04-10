@@ -40,11 +40,11 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
                 className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[25px] rounded-tr-[0px] transition-all">
                 <Dialog.Title
                   as="div"
-                  className="flex flex-row items-center justify-between text-primary-50 p-5 md:p-[50px]"
+                  className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px]"
                 >
-                  <span className="font-sporting-grotesque font-bold text-[14px] md:text-[18px]">Agreenup</span>
+                  <span className="font-sporting-grotesque font-bold text-[14px] sm:text-[18px]">Agreenup</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
-                    <span className="font-bold text-[14px] md:text-[18px] underline">Fermer</span>
+                    <span className="font-bold text-[14px] sm:text-[18px] underline">Fermer</span>
                   </button>
                 </Dialog.Title>
                 <div className="flex items-start flex-col gap-[10px] font-sporting-grotesque font-bold text-primary-50 text-[18px] leading-[38px] p-5">
