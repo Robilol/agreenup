@@ -48,17 +48,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
         <link href="https://fonts.cdnfonts.com/css/hk-groteks" rel="stylesheet"/>
         <link href="https://fonts.cdnfonts.com/css/sporting-grotesque" rel="stylesheet"/>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"
+                async />
       </Head>
       <main className="font-hk-grotesk">
-        <div className="z-[1] relative p-[20px] sm:p-[50px]">
+        <div className="z-[1] relative p-[20px] sm:p-[50px] overflow-y-scroll">
           <div className="max-w-[1380px] mx-auto">
             <div
-              className={cx("border-primary-900 border-2 fixed flex items-center transition w-[calc(100%-40px)] sm:w-[calc(100%-100px)] lg:w-auto xl:-mx-[7px]", {
+              className={cx("border-primary-900 border-2 fixed flex items-center transition w-[calc(100%-40px)] sm:w-[calc(100%-100px)] lg:w-auto", {
                 'bg-primary-50': isScrolled
               })}>
               <button
                 onClick={() => document?.querySelector('#main')?.scrollTo({top: 0, behavior: 'smooth'})}
-                className="pl-6 pr-[25px] py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-[20px] sm:text-3xl">
+                className="pl-6 pr-[26px] py-3 border-primary-900 border-r-2 text-primary-900 font-bold text-[20px] sm:text-3xl">
                 Agreenup
               </button>
               <div className="hidden px-5 py-2 text-primary-900 font-bold custom:flex space-x-10 items-center text-lg">
@@ -74,9 +77,14 @@ export default function Home() {
                   behavior: 'smooth'
                 })}>Les formations
                 </button>
-                <button className="px-5 py-1.5 bg-primary-600 text-primary-50 rounded-[40px] font-bold">Réserver une
-                  formation
-                </button>
+                <a className="cursor-pointer text-center block px-5 py-1.5 bg-primary-600 text-primary-50 rounded-[40px] font-bold"
+                   onClick={() => {
+                     // @ts-ignore
+                     Calendly.initPopupWidget({url: 'https://calendly.com/robin-regis78/jardin-en-autonomie'});
+                     return false;
+                   }}>Réserver
+                  une
+                  formation</a>
               </div>
               <div className="custom:hidden w-full flex justify-end px-5">
                 <button onClick={() => setShowMenu(true)}
@@ -88,14 +96,15 @@ export default function Home() {
           </div>
         </div>
         <div className="fixed inset-0">
-          <RandomMovingSplash width={271} height={256} img="/vector-1.svg" left={0} top={0} />
-          <RandomMovingSplash width={402} height={365} img="/vector-2.svg" left={200} top={200} />
-          <RandomMovingSplash width={472} height={429} img="/vector-3.svg" left={400} top={400} />
-          <RandomMovingSplash width={650} height={501} img="/vector-4.svg" left={600} top={600} />
-          <RandomMovingSplash width={300} height={231} img="/vector-5.svg" left={200} top={400} />
-          <RandomMovingSplash width={506} height={470} img="/vector-6.svg" left={800} top={100} />
+          <RandomMovingSplash width={271} height={256} img="/vector-1.svg" left={100} top={100}/>
+          <RandomMovingSplash width={402} height={365} img="/vector-2.svg" left={200} top={200}/>
+          <RandomMovingSplash width={472} height={429} img="/vector-3.svg" left={400} top={400}/>
+          <RandomMovingSplash width={650} height={501} img="/vector-4.svg" left={600} top={600}/>
+          <RandomMovingSplash width={300} height={231} img="/vector-5.svg" left={200} top={400}/>
+          <RandomMovingSplash width={506} height={470} img="/vector-6.svg" left={800} top={100}/>
         </div>
-        <div className="backdrop-blur-[75px] bac bg-primary-50/50 fixed inset-0 overflow-y-auto" id="main" ref={contentRef}>
+        <div className="backdrop-blur-[75px] bac bg-primary-50/50 fixed inset-0 overflow-y-auto" id="main"
+             ref={contentRef}>
           <div className='p-[20px] sm:p-[50px]'>
             <div className="max-w-[1380px] w-full relative flex flex-col mx-auto">
               <div
@@ -112,11 +121,12 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="w-full sm:w-1/2 flex flex-row sm:flex-col gap-2.5 sm:gap-6 items-center order-1 sm:order-2">
-                  <div className="w-[137px] h-[137px] sm:w-[323px] sm:h-[323px] relative">
+                <div
+                  className="w-full sm:w-1/2 flex flex-row sm:flex-col gap-2.5 sm:gap-6 items-center order-1 sm:order-2">
+                  <div className="w-full h-auto p-[25%] sm:p-0 sm:w-[323px] sm:h-[323px] relative">
                     <Image src="/img/img-home-1@2x.png" alt="" fill/>
                   </div>
-                  <div className="w-[137px] h-[137px] sm:w-[323px] sm:h-[323px] relative">
+                  <div className="w-full h-auto p-[25%] sm:p-0 sm:w-[323px] sm:h-[323px] relative">
                     <Image src="/img/img-home-2@2x.png" alt="" fill/>
                   </div>
                 </div>
@@ -138,39 +148,72 @@ export default function Home() {
                     <div className="hidden sm:block w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
                   </div>
                   <div
-                    className="border-2 border-b-0 border-primary-900 px-6 py-12 sm:px-12 sm:py-24 flex flex-col sm:flex-row gap-[50px]">
-                    <div className="w-full sm:w-1/2">
-                      <div
-                        className="w-full h-auto p-[50%] max-w-[255px] max-h-[255px] sm:w-[470px] sm:h-[470px] relative">
-                        <Image src="/img/img-permaculture@2x.png" alt="" fill/>
+                    className="border-2 border-b-0 border-primary-900 px-6 py-12 sm:px-12 sm:py-24 flex flex-col gap-[50px]">
+                    <div className="flex flex-col sm:flex-row gap-[50px]">
+                      <div className="w-full sm:w-1/2">
+                        <div
+                          className="w-full h-auto p-[50%] max-w-[255px] max-h-[255px] sm:w-[470px] sm:h-[470px] relative">
+                          <Image src="/img/img-permaculture@2x.png" alt="" fill/>
+                        </div>
+                      </div>
+                      <div className="w-full sm:w-1/2 space-y-3">
+                        <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
+                          englobe à la fois une méthode de conception durable pour les systèmes humains et une
+                          philosophie
+                          de vie. Le mot « Permaculture » est une contraction de
+                          « culture permanente ». Vivre avec la nature, prélever ce qu’elle nous donne tout en la
+                          respectant pour les générations actuelles et futures. Renaturer les sols et cultiver son
+                          jardin
+                          naturellement avec des connaissances bien structurées pour satisfaire les besoins de sa
+                          famille
+                          et de ses proches.</p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          L’autonomie alimentaire est une belle approche pour le développement durable.
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          Produire ses graines jusqu’à la récolte, il y a tout un chemin minutieux à parcourir en
+                          redécouvrant du sens à ce que l’on fait. La conservation et le recyclage des déchets verts
+                          font
+                          partie intégrante de ce cercle vertueux. Chacun de nous peut apporter sa pierre à l’édifice.
+                        </p>
                       </div>
                     </div>
-                    <div className="w-full sm:w-1/2 space-y-3">
-                      <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
-                        englobe à la fois une
-                        méthode de conception durable pour les systèmes humains et une philosophie de vie. Le
-                        mot &quot;permaculture&quot; est une contraction de &quot;culture
-                        permanente&quot; ou &quot;agriculture permanente&quot;.
-                      </p>
-                      <p className="text-[18px] leading-[22px] text-primary-900">
-                        La permaculture s&apos;inspire de la nature pour concevoir des systèmes humains résilients et
-                        durables, qui fonctionnent en harmonie avec les écosystèmes locaux. Elle se concentre sur la
-                        création d&apos;un système circulaire, où les déchets sont recyclés, les nutriments sont
-                        réutilisés, et où les plantes et les animaux travaillent ensemble pour maintenir un équilibre
-                        écologique sain.
-                      </p>
-                      <p className="text-[18px] leading-[22px] text-primary-900">
-                        La permaculture applique les principes de la biologie, de la botanique, de la zoologie et de la
-                        géologie pour créer des systèmes écologiquement sains. Elle encourage la diversité des espèces
-                        et
-                        la création d&apos;un habitat naturel pour les plantes et les animaux, afin de favoriser la
-                        régénération des sols et la réduction de l&apos;empreinte écologique.
-                      </p>
-                      <p className="text-[18px] leading-[22px] text-primary-900">
-                        En somme, la permaculture est une approche holistique pour la conception de systèmes durables,
-                        qui
-                        prend en compte les besoins et les limites de l&apos;environnement naturel, des êtres humains et
-                        de la communauté dans son ensemble.</p>
+                    <div className="flex flex-col sm:flex-row gap-[50px]">
+                      <div className="w-full sm:w-1/2 space-y-3">
+                        <p className="text-[18px] leading-[22px] text-primary-900">La qualité des aliments du potager
+                          est notre santé. Elle dépend aussi de la vie des sols, notre « Terre Mère ».
+                          « Prendre soins de la terre » est l’un des piliers fondamentaux de la permaculture défendu par
+                          Bill Mollison et David Holmgren pères du terme
+                          « permaculture ».
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          Selon Bill Mollison et David Holmgren « Le second pilier est de « prendre soins des hommes et
+                          des femmes » en réunissant les forces et les ressources pour réaliser des actions collectives
+                          ».
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          « Le partage équitable en créant une abondance alimentaire, des liens sociaux, d’écologie et
+                          même menée financièrement pour que chacun puisse vivre confortablement et équitablement ».
+                        </p>
+                      </div>
+                      <div className="w-full sm:w-1/2 space-y-3">
+                        <p className="text-[18px] leading-[22px] text-primary-900">Le bien-être se ressource sur des
+                          choses simples de la vie comme le Bonheur.
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          Aujourd’hui, vu le contexte actuel entre le prix de production des fruits et des légumes et le
+                          temps qu’il nous reste pour faire du jardin ; ce modèle cultural est beaucoup plus simple que
+                          le modèle traditionnel et moins cher. Vous faites travailler à votre place ce que la nature
+                          vous donne.
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          Vous favorisez la biodiversité dans son écosystème équilibré et vous le nourrissez pour le
+                          rendre pérenne.
+                        </p>
+                        <p className="text-[18px] leading-[22px] text-primary-900">
+                          La résilience à la sécheresse et aux canicules est tout à fait possible en appliquant quelques
+                          connaissances et de nouvelles habitudes durablement dans votre jardin.</p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-row w-full">
@@ -185,8 +228,10 @@ export default function Home() {
                   <div className="text-primary-900">
                     <span
                       className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</span>
-                    <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de découvrir
-                      ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à l&apos;épanouissement
+                    <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de
+                      découvrir
+                      ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à
+                      l&apos;épanouissement
                       des plantes pour obtenir des fleurs nombreuses et colorées. J&apos;ai à cœur de transmettre mes
                       connaissances sur la permaculture, afin de préserver la biodiversité et les générations
                       futures.</p>
@@ -268,7 +313,7 @@ export default function Home() {
                           <li>Fertiliser naturellement ses plantes d&apos;intérieur dès le printemps.</li>
                         </ul>
                         <button
-                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-[130px] w-full font-bold">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-auto w-full font-bold">Réserver
                         </button>
                       </div>
                     </div>
@@ -283,10 +328,11 @@ export default function Home() {
                           <span className="font-medium text-[15px] leading-[15px] mt-5">Ces formations peuvent être réalisées en visio-conférence ou en physique.</span>
                         </div>
                         <div className="w-full sm:w-1/2">
-                          <button
-                            className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full font-bold">Demander
+                          <a
+                            href="mailto:"
+                            className="cursor-pointer text-center px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full max-w-[314px] mx-auto font-bold block">Demander
                             un devis
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

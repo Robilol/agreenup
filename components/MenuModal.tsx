@@ -37,7 +37,7 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[25px] rounded-tr-[0px] transition-all">
+                className="w-full max-w-[1340px] transform overflow-hidden bg-primary-900 rounded-[25px] rounded-tr-[0px] transition-all">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px]"

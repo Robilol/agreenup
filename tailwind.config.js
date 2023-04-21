@@ -39,7 +39,7 @@ module.exports = {
                     sm: '0.3125rem',
                     default: '2.5rem',
                     full: '9999px'
-                }
+                },
         },
     },
     plugins: [],

@@ -24,14 +24,14 @@ const RandomMovingSplash: FC<RandomMovingSplashProps> = ({width, img, height, le
 
   useEffect(() => {
     getNewPos()
-    const interval = setInterval(() => getNewPos(), 10000);
+    const interval = setInterval(() => getNewPos(), 15000);
     return () => {
       clearInterval(interval);
     };
   }, []);
 
   return (
-    <div className="relative transition-all duration-[10000ms] ease-linear" style={{
+    <div className="relative transition-all duration-[15000ms] ease-linear" style={{
       width, height,
       left: pos.left,
       top: pos.top
