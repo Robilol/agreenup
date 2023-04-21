@@ -60,7 +60,9 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
                     onLinkClick('#formations')
                   }}>Les formations
                   </button>
-                  <button className="px-5 py-1.5 text-primary-600 bg-primary-50 rounded-[40px] font-hk-grotesk w-full font-bold">Réserver une formation
+                  <button onClick={() => {
+                    onLinkClick('#formations')
+                  }} className="px-5 py-1.5 text-primary-600 bg-primary-50 rounded-[40px] font-hk-grotesk w-full font-bold">Réserver une formation
                   </button>
                 </div>
               </Dialog.Panel>
