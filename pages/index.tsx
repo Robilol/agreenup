@@ -239,7 +239,7 @@ export default function Home() {
                   <div className="text-primary-900">
                     <h2
                       className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</h2>
-                    <p className="w-full">Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de
+                    <p className="w-full"><img className="mr-2 inline-block" src="/img/icon-plume.svg" alt="" width={20} height={24}/>Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de
                       découvrir
                       ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à
                       l&apos;épanouissement
