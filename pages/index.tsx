@@ -350,7 +350,7 @@ export default function Home() {
                         </div>
                         <div className="w-full sm:w-1/2">
                           <a
-                            href="mailto:agreenup89@gmail.fr"
+                            href="mailto:agreenup89@gmail.fr?subject=Site Agreenup | Demande de devis"
                             className="cursor-pointer text-center px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full max-w-[314px] mx-auto font-bold block">Demander
                             un devis
                           </a>
@@ -377,7 +377,7 @@ export default function Home() {
                 <div className="flex flex-col">
                   <span className="font-bold text-primary-50 text-[18px] mb-5">Envie d&apos;échanger ?</span>
                   <a
-                    href="mailto:agreenup89@gmail.fr"
+                    href="mailto:agreenup89@gmail.fr?subject=Site Agreenup | Demande de contact"
                     className="block text-center px-5 py-2.5 text-primary-600 bg-primary-50 rounded-[40px] text-[18px] leading-[22px] font-bold">Me
                     contacter
                   </a>
