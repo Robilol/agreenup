@@ -39,11 +39,19 @@ export default function Home() {
 
   }, [])
 
+  const onLinkClick = (anchor: string) => {
+    document?.querySelector(anchor)?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <>
       <Head>
-        <title>Agreenup | Apprenez la permaculture en ligne avec Agreenup - Cours de formation en jardinage durable</title>
-        <meta name="description" content="Apprenez les bases de la permaculture avec Agreenup, la plateforme de formation en ligne de Laurent Jarosz. Découvrez nos cours pratiques pour cultiver votre propre jardin durablement et respectueusement de l'environnement. Inscrivez-vous dès maintenant et rejoignez notre communauté de passionnés de la permaculture!"/>
+        <title>Agreenup | Apprenez la permaculture en ligne avec Agreenup - Cours de formation en jardinage
+          durable</title>
+        <meta name="description"
+              content="Apprenez les bases de la permaculture avec Agreenup, la plateforme de formation en ligne de Laurent Jarosz. Découvrez nos cours pratiques pour cultiver votre propre jardin durablement et respectueusement de l'environnement. Inscrivez-vous dès maintenant et rejoignez notre communauté de passionnés de la permaculture!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
@@ -119,8 +127,9 @@ export default function Home() {
                 className="border-primary-900 border-2 border-b-0 pt-28 pb-6 pl-6 pr-6 sm:pt-40 sm:pb-24 sm:pl-40 sm:pr-60 flex flex-col sm:flex-row gap-[50px] sm:gap-32">
                 <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
-                  <h1
-                    className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre la permaculture en 2h</h1>
+                    <h1
+                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre
+                      la permaculture en 2h</h1>
                     <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
                       résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
                     <button
@@ -154,7 +163,8 @@ export default function Home() {
                       id="permaculture"
                       className="w-full sm:w-1/2 border-l-2 border-t-2 border-r-2 sm:border-r-0 border-primary-900 text-primary-900 flex items-center sm:px-7 scroll-mt-[110px]">
                       <h2
-                        className="text-[30px] leading-[42px] py-4 px-6 sm:p-0 text-center sm:text-left sm:text-[44px] sm:leading-[54px] font-sporting-grotesque">La permaculture</h2>
+                        className="text-[30px] leading-[42px] py-4 px-6 sm:p-0 text-center sm:text-left sm:text-[44px] sm:leading-[54px] font-sporting-grotesque">La
+                        permaculture</h2>
                     </div>
                     <div className="hidden sm:block w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
                   </div>
@@ -238,8 +248,11 @@ export default function Home() {
                 <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
                     <h2
-                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je suis<br/>Laurent Jarozs, formateur et passionné</h2>
-                    <p className="w-full"><img className="mr-2 inline-block" src="/img/icon-plume.svg" alt="" width={20} height={24}/>Mes parents m&apos;ont transmis leur amour du jardin ce qui m&apos;a permis de
+                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je
+                      suis<br/>Laurent Jarozs, formateur et passionné</h2>
+                    <p className="w-full"><img className="mr-2 inline-block" src="/img/icon-plume.svg" alt="" width={20}
+                                               height={24}/>Mes parents m&apos;ont transmis leur amour du jardin ce qui
+                      m&apos;a permis de
                       découvrir
                       ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à
                       l&apos;épanouissement
@@ -270,7 +283,8 @@ export default function Home() {
                       id="formations"
                       className="w-full sm:w-1/2 border-l-2 sm:border-l-0 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
                       <h2
-                        className="text-center sm:text-left text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] py-4 px-6 sm:p-0 font-sporting-grotesque">Les formations</h2>
+                        className="text-center sm:text-left text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] py-4 px-6 sm:p-0 font-sporting-grotesque">Les
+                        formations</h2>
                     </div>
                   </div>
                   <div className="border-2 border-primary-900 flex flex-col">
@@ -280,8 +294,9 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col sm:flex-row w-full">
                       <div className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center">
-                      <h3
-                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Un jardin en autonomie</h3>
+                        <h3
+                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Un
+                          jardin en autonomie</h3>
                         <span
                           className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
@@ -303,7 +318,7 @@ export default function Home() {
                         <button
                           onClick={() => {
                             // @ts-ignore
-                            Calendly.initPopupWidget({url: 'https://calendly.com/robin-regis78/jardin-en-autonomie'});
+                            Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-un-jardin-en-autonomie'});
                             return false;
                           }}
                           className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-full font-bold">Réserver
@@ -311,8 +326,9 @@ export default function Home() {
                       </div>
                       <div
                         className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center border-t-2 sm:border-t-0  sm:border-l-2 border-primary-900">
-                      <h3
-                        className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Les plantes à la maison</h3>
+                        <h3
+                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Les
+                          plantes à la maison</h3>
                         <span
                           className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
@@ -331,7 +347,7 @@ export default function Home() {
                         <button
                           onClick={() => {
                             // @ts-ignore
-                            Calendly.initPopupWidget({url: 'https://calendly.com/robin-regis78/jardin-en-autonomie'});
+                            Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-les-plantes-a-la-maison'});
                             return false;
                           }}
                           className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-auto w-full font-bold">Réserver
@@ -341,7 +357,8 @@ export default function Home() {
                     <div className="border-t-2 border-primary-900 px-4 py-8 sm:p-24 flex flex-col">
                       <span
                         className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">Sur-mesure</span>
-                      <h2 className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">Vous êtes une école, un collège, un lycée, un particulier, un groupe… ?</h2>
+                      <h2 className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">Vous
+                        êtes une école, un collège, un lycée, un particulier, un groupe… ?</h2>
                       <div className="mt-6 sm:mt-[50px] flex flex-col sm:flex-row sm:gap-32">
                         <div className="w-full sm:w-1/2 text-primary-900 flex flex-col">
                           <span className="text-[18px] leading-[22px]">Vous souhaitez réaliser une formation de permaculture selon certaines conditions ?</span>
@@ -371,7 +388,8 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-primary-50 text-[18px] mb-5">Réseaux sociaux</span>
-                  <a href="https://www.linkedin.com/in/laurent-jarosz-825701263/" target="_blank" className="text-primary-50 text-[18px] underline">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/laurent-jarosz-825701263/" target="_blank"
+                     className="text-primary-50 text-[18px] underline">LinkedIn</a>
                   {/*<a href="#" target="_blank" className="text-primary-50 text-[18px] underline">Instagram</a>*/}
                 </div>
                 <div className="flex flex-col">
@@ -399,12 +417,10 @@ export default function Home() {
       <MentionsModal isOpen={showMentionsModal} onClose={() => setMentionsModal(false)}/>
       <CgvModal isOpen={showCgvModal} onClose={() => setCgvModal(false)}/>
       <MenuModal isOpen={showMenu} onClose={() => setShowMenu(false)} onLinkClick={(anchor) => {
-        document?.querySelector(anchor)?.scrollIntoView({
-          behavior: 'smooth'
-        })
+        setShowMenu(false)
         setTimeout(() => {
-          setShowMenu(false)
-        }, 1000)
+          onLinkClick(anchor)
+        }, 50)
       }
       }/>
     </>

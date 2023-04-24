@@ -42,7 +42,7 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px]"
                 >
-                  <span className="font-sporting-grotesque font-bold text-[14px] sm:text-[18px]">Agreenup</span>
+                  <span className="font-bold text-[20px] sm:text-[22px] font-hk-grotesk">Agreenup</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
                     <span className="font-bold text-[14px] sm:text-[18px] underline">Fermer</span>
                   </button>
