@@ -98,7 +98,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                         préparation du sol la première année avec une méthode culturale adaptée et suivie permet de
                         faire travailler à notre place la biodiversité, les artisans des sols...
                         C&apos;est aussi un plaisir de produire et de manger des légumes que l&apos;on cuisine!
-                        J&apos;apprécie un proverbe qui est à mon goût, la quintessence de la vie : &quot;Ne donne pas
+                        J&apos;apprécie un proverbe qui est à mon goût, la quintessence de la vie : &quot;Ne donnes pas
                         au pêcheur
                         le poisson, mais apprends-lui à pêcher&quot;;
                         Je suis allé au Sahel au Burkina-Faso en mission Humanitaire. J&apos;ai donné des conseils en
@@ -133,8 +133,8 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       <div className="flex flex-col gap-3">
                         <span className="font-bold text-primary-50 text-[18px] leading-[30px] font-sporting-grotesque">La connaissance du fonctionnement écologique des sols en interaction avec les plantes et le climat</span>
                         <p className="text-primary-50 text-[18px] leading-[22px] font-light">Un stage qui résume
-                          l&apos;ensemble des interactions entre les acteurs de la biodiversité des sols en lien avec sa
-                          texture et sa structure et le climat. Les relations entre les propriétés physiques,
+                          l&apos;ensemble des interactions entre les acteurs de la biodiversité des sols en lien avec leurs
+                          textures, leurs structures et le climat. Les relations entre les propriétés physiques,
                           biologiques et chimiques des sols comme les amendements et les fertilisations naturelles,
                           C.A.H, le Ph, le C.E.C, humidifications de la matière organique, le
                           potentiel &quot;rédox&quot;. Les
