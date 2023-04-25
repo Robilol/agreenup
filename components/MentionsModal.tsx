@@ -38,7 +38,7 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
+                className="w-full max-w-[1340px] sm:max-h-[92vh] transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px] border-b-2 border-primary-800"
@@ -56,19 +56,26 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   <span
                     className="text-primary-50 text-[38px] leading-[44px] font-sporting-grotesque">Mentions légales</span>
                   <div className="text-primary-50 font-light space-y-5 mt-5 mb-10 text-[18px]">
-                    <p>Le site agreenup.fr est édité par [nom de la société éditrice], société par actions simplifiée au
-                      capital de [montant du capital social] euros, immatriculée au Registre du Commerce et des Sociétés
-                      de [ville d&apos;immatriculation] sous le numéro [numéro d&apos;immatriculation]. Son siège social
-                      est situé à
-                      [adresse du siège social].</p>
+                    <p>Le site agreenup.fr est édité par : <br/>
+                      M Laurent Jarosz <br/>
+                      Entrepreneur individuel <br/>
+                      Siren: 951291111<br/> <br/>
+                      Son siège social
+                      est situé au :
+                      <br/>
+                      15 rue de la maladière<br/>
+                      Entrée D <br/>
+                      89000, Auxerre</p>
 
-                    <p>Directeur de la publication : [nom du directeur de la publication]</p>
+                    <p>Directeur de la publication : M Laurent Jarosz</p>
 
-                    <p>Adresse e-mail : [adresse e-mail de contact]</p>
+                    <p>Adresse e-mail : laurent.jarosz89@gmail.com</p>
 
-                    <p>Hébergement : [nom de l&apos;hébergeur], [adresse de l&apos;hébergeur], [numéro de téléphone de
-                      l&apos;hébergeur],
-                      [adresse e-mail de l&apos;hébergeur]</p>
+                    <p>Hébergement : <br/>
+                      Nom: Vercel v Inc<br/>
+                      Adresse: 340 S Lemon Ave – 4133 Walnut, CA 91789<br/>
+                      Téléphone: 5592887060,<br/>
+                      Email: dmca@vercel.com</p>
 
                     <span className="block font-sporting-grotesque font-bold">Conditions d&apos;utilisation</span>
 
@@ -100,17 +107,13 @@ const MentionsModal: FC<ModalProps> = ({isOpen, onClose}) => {
 
                     <span className="font-sporting-grotesque block font-bold">Cookies</span>
 
-                    <p>Le site agreenup.fr peut utiliser des cookies pour faciliter la navigation et améliorer
-                      l&apos;expérience utilisateur. Pour en savoir plus sur notre utilisation des cookies, veuillez
-                      consulter
-                      notre politique de cookies accessible depuis la page d&apos;accueil du site.</p>
+                    <p>Le site agreenup.fr n&apos;utilise pas de cookies</p>
 
                     <span className="font-sporting-grotesque block font-bold">Droit applicable et juridiction</span>
 
                     <p>Tout litige en relation avec l&apos;utilisation du site agreenup.fr est soumis au droit français.
                       Il est
-                      fait attribution exclusive de juridiction aux tribunaux compétents de [ville du siège social de la
-                      société éditrice].</p>
+                      fait attribution exclusive de juridiction aux tribunaux compétents de Auxerre.</p>
                   </div>
                 </div>
                 <button onClick={() => scrollContent.current?.scrollTo({top: 0, behavior: 'smooth'})}

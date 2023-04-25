@@ -38,7 +38,7 @@ const CgvModal: FC<ModalProps> = ({isOpen, onClose}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
+                className="w-full max-w-[1340px] sm:max-h-[92vh] transform overflow-hidden bg-primary-900 rounded-[50px] rounded-tl-[0px] transition-all font-hk-grotesk">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px] border-b-2 border-primary-800"
@@ -59,21 +59,19 @@ const CgvModal: FC<ModalProps> = ({isOpen, onClose}) => {
                   <div className="text-primary-50 font-light space-y-5 mt-5 mb-10 text-[18px]">
                     <span className="font-sporting-grotesque block font-bold">Objet</span>
                     <p>Les présentes conditions générales de vente (CGV) régissent les relations contractuelles entre
-                      AgreenUp, représenté par [nom du représentant légal de l&apos;entreprise], immatriculée au
-                      Registre du
-                      Commerce et des Sociétés de [ville d&apos;immatriculation] sous le numéro [numéro
-                      d&apos;immatriculation] et
+                      M Laurent Jarosz (Agreenup), siren 951291111 et
                       tout client souhaitant utiliser les services de réservation de visioconférence via Calendly
                       proposés par AgreenUp.</p>
 
                     <span className="font-sporting-grotesque block font-bold">Description des services</span>
-                    <p>AgreenUp propose un service de réservation de visioconférence via Calendly pour une durée de 2h30
-                      pour un tarif de 20 euros.</p>
+                    <p>AgreenUp propose un service de réservation de visioconférence via Calendly pour 2 type de formations: <br/>
+                      - La formation &quot;Un jardin en autonomie&quot; d&apos;une durée de 2h pour un tarif de 25 euros <br/>
+                      - La formation &quot;Un jardin en autonomie&quot; d&apos;une durée de 2h pour un tarif de 25 euros</p>
 
                     <span className="font-sporting-grotesque block font-bold">Modalités de réservation</span>
                     <p>Les réservations de créneaux horaires de visioconférence se font uniquement via Calendly. Les
                       clients sont tenus de renseigner toutes les informations demandées lors de la réservation,
-                      notamment leur nom, prénom, adresse e-mail et numéro de téléphone.</p>
+                      notamment leur nom, prénom et adresse e-mail.</p>
 
                     <span className="font-sporting-grotesque block font-bold">Paiement</span>
                     <p>Le paiement des prestations s&apos;effectue exclusivement en ligne sur la plateforme de paiement
@@ -81,9 +79,12 @@ const CgvModal: FC<ModalProps> = ({isOpen, onClose}) => {
                       réservation.</p>
 
                     <span className="font-sporting-grotesque block font-bold">Annulation et remboursement</span>
-                    <p>Les clients peuvent annuler leur réservation jusqu&apos;à 24 heures avant la date et l&apos;heure
+                    <p>Les clients peuvent annuler leur réservation jusqu&apos;à 72h heures avant la date et l&apos;heure
                       de la
-                      visioconférence. Toutefois, aucun remboursement ne sera effectué en cas d&apos;annulation tardive
+                      visioconférence et donnera lieu a un remboursement sous 30 jours a partir de la date d&apos;annulation. <br/>
+                      Toutefois, aucun remboursement ne sera effectué en cas d&apos;annulation après 72h avant la date et l&apos;heure
+                      de la
+                      visioconférence
                       ou
                       d&apos;absence du client au moment de la visioconférence.</p>
 

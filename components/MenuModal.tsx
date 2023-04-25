@@ -37,12 +37,12 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-3xl transform overflow-hidden bg-primary-900 rounded-[25px] rounded-tr-[0px] transition-all">
+                className="w-full max-w-[1340px] transform overflow-hidden bg-primary-900 rounded-[25px] rounded-tr-[0px] transition-all">
                 <Dialog.Title
                   as="div"
                   className="flex flex-row items-center justify-between text-primary-50 p-5 sm:p-[50px]"
                 >
-                  <span className="font-sporting-grotesque font-bold text-[14px] sm:text-[18px]">Agreenup</span>
+                  <span className="font-bold text-[20px] sm:text-[22px] font-hk-grotesk">Agreenup</span>
                   <button className="flex items-center gap-2.5" onClick={onClose}>
                     <span className="font-bold text-[14px] sm:text-[18px] underline">Fermer</span>
                   </button>
@@ -60,7 +60,9 @@ const MenuModal: FC<ModalProps> = ({isOpen, onClose, onLinkClick}) => {
                     onLinkClick('#formations')
                   }}>Les formations
                   </button>
-                  <button className="px-5 py-1.5 text-primary-600 bg-primary-50 rounded-[40px] font-hk-grotesk w-full font-bold">Réserver une formation
+                  <button onClick={() => {
+                    onLinkClick('#formations')
+                  }} className="px-5 py-1.5 text-primary-600 bg-primary-50 rounded-[40px] font-hk-grotesk w-full font-bold">Réserver une formation
                   </button>
                 </div>
               </Dialog.Panel>
