@@ -403,12 +403,19 @@ export default function Home() {
                 </div>
               </div>
               <div
-                className="w-full border-t border-primary-600 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px]">
-                <span>© 2023 Agreenup</span>
-                <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
-                <button onClick={() => setMentionsModal(true)} className="underline">Mentions légales</button>
-                <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
-                <button onClick={() => setCgvModal(true)} className="underline">Conditions générales de vente</button>
+                className="w-full border-t border-primary-600 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 py-5 text-primary-200 text-[15px] mt-[50px] sm:justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5">
+                  <span>© 2023 Agreenup</span>
+                  <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                  <button onClick={() => setMentionsModal(true)} className="underline">Mentions légales</button>
+                  <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                  <button onClick={() => setCgvModal(true)} className="underline">Conditions générales de vente</button>
+                </div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5">
+                  <span>Conception <a href="https://timotheejulien.fr/" target="_blank" className="underline">Timothée</a></span>
+                  <div className="hidden sm:block rounded-full w-[6px] h-[6px] bg-primary-200"></div>
+                  <span>Développement <a href="https://www.robin-regis.fr/" target="_blank" className="underline">Robin</a></span>
+                </div>
               </div>
             </div>
           </div>
