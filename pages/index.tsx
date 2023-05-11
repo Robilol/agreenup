@@ -204,12 +204,12 @@ export default function Home() {
                       <div className="w-full sm:w-1/2 space-y-3">
                         <p className="text-[18px] leading-[22px] text-primary-900">La qualité des aliments du potager
                           est notre santé. Elle dépend aussi de la vie des sols, notre « Terre Mère ».
-                          « Prendre soins de la terre » est l’un des piliers fondamentaux de la permaculture défendu par
+                          « Prendre soin de la terre » est l’un des piliers fondamentaux de la permaculture défendu par
                           Bill Mollison et David Holmgren pères du terme
                           « permaculture ».
                         </p>
                         <p className="text-[18px] leading-[22px] text-primary-900">
-                          Selon Bill Mollison et David Holmgren « Le second pilier est de « prendre soins des hommes et
+                          Selon Bill Mollison et David Holmgren « Le second pilier est de « prendre soin des hommes et
                           des femmes » en réunissant les forces et les ressources pour réaliser des actions collectives
                           ».
                         </p>

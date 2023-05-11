@@ -123,7 +123,7 @@ const AboutModal: FC<ModalProps> = ({isOpen, onClose}) => {
                                                 au pêcheur
                                                 le poisson, mais apprends-lui à pêcher&quot;;
                                                 Je suis allé au Sahel au Burkina-Faso pour réaliser des actions
-                                                Humanitaire. J&apos;ai donné des conseils en
+                                                Humanitaires. J&apos;ai donné des conseils en
                                                 permaculture pour renaturer des sols désertiques, composés
                                                 essentiellement de latérite; le sable
                                                 rouge.
