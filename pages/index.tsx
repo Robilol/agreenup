@@ -130,7 +130,7 @@ export default function Home() {
                   <div className="text-primary-900">
                     <h1
                       className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre
-                      la permaculture en 2h</h1>
+                      la permaculture en 1h</h1>
                     <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
                       résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
                     <button
@@ -301,7 +301,7 @@ export default function Home() {
                         <span
                           className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
-                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée en 1h30, puis temps d&apos;échange de 30 minutes pour répondre à vos questions.</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée avec un temps d&apos;échange d&apos;une heure.</span>
                         <ul
                           className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
                           <li>La relation systémique entre les sols, les plantes et le climat</li>
@@ -333,7 +333,7 @@ export default function Home() {
                         <span
                           className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
-                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée en 1h30, puis temps d&apos;échange de 30 minutes pour répondre à vos questions.</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée avec un temps d&apos;échange d&apos;une heure.</span>
                         <ul
                           className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
                           <li>La croissance des plantes et comment pallier les facteurs limitants dans un environnement

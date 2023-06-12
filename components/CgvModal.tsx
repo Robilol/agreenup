@@ -65,8 +65,8 @@ const CgvModal: FC<ModalProps> = ({isOpen, onClose}) => {
 
                     <span className="font-sporting-grotesque block font-bold">Description des services</span>
                     <p>AgreenUp propose un service de réservation de visioconférence via Calendly pour 2 type de formations: <br/>
-                      - La formation &quot;Un jardin en autonomie&quot; d&apos;une durée de 2h pour un tarif de 25 euros <br/>
-                      - La formation &quot;Un jardin en autonomie&quot; d&apos;une durée de 2h pour un tarif de 25 euros</p>
+                      - La formation &quot;Un jardin en autonomie&quot; d&apos;une durée de 1h pour un tarif de 25 euros <br/>
+                      - La formation &quot;Les plantes à la maison&quot; d&apos;une durée de 1h pour un tarif de 25 euros</p>
 
                     <span className="font-sporting-grotesque block font-bold">Modalités de réservation</span>
                     <p>Les réservations de créneaux horaires de visioconférence se font uniquement via Calendly. Les
