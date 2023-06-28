@@ -7,14 +7,19 @@ import MentionsModal from "@/components/MentionsModal";
 import CgvModal from "@/components/CgvModal";
 import MenuModal from "@/components/MenuModal";
 import RandomMovingSplash from "@/components/RandomMovingSplash";
+import { createClient } from "next-sanity";
+import {client} from "@/sanity/lib/client";
+import {urlForImage} from "@/sanity/lib/image";
 
-export default function Home() {
+export default function Home({header, bloc, about, formation}) {
   const contentRef = useRef<HTMLDivElement | null>(null)
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
   const [showAboutModal, setShowAboutModal] = useState<boolean>(false)
   const [showMentionsModal, setMentionsModal] = useState<boolean>(false)
   const [showCgvModal, setCgvModal] = useState<boolean>(false)
   const [showMenu, setShowMenu] = useState(false)
+
+  console.log(formation)
 
   useLayoutEffect(() => {
     const onScroll = () => {
@@ -129,26 +134,23 @@ export default function Home() {
                 <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
                     <h1
-                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">Apprendre
-                      la permaculture en 1h</h1>
-                    <p className="w-full text-[22px] leading-[26px]">Produire son potager et ses plantes décoratives en
-                      résilience avec la sécheresse grâce aux méthodes culturales naturelles.</p>
+                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block w-86 font-sporting-grotesque">{header.title}</h1>
+                    <p className="w-full text-[22px] leading-[26px]">{header.subtitle}</p>
                     <button
                       onClick={() => document?.querySelector('#formations')?.scrollIntoView({
                         behavior: 'smooth'
                       })}
-                      className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] font-bold">Réserver
-                      une formation
+                      className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] font-bold">{header.cta}
                     </button>
                   </div>
                 </div>
                 <div
                   className="w-full sm:w-1/2 flex flex-row sm:flex-col gap-2.5 sm:gap-6 items-center order-1 sm:order-2">
                   <div className="w-full h-auto p-[25%] sm:p-0 sm:w-[323px] sm:h-[323px] relative">
-                    <Image src="/img/img-home-1@2x.png" alt="" fill/>
+                    <Image src={urlForImage(header.image1)?.url()} alt="" fill/>
                   </div>
                   <div className="w-full h-auto p-[25%] sm:p-0 sm:w-[323px] sm:h-[323px] relative">
-                    <Image src="/img/img-home-2@2x.png" alt="" fill/>
+                    <Image src={urlForImage(header.image2)?.url()} alt="" fill/>
                   </div>
                 </div>
               </div>
@@ -164,8 +166,7 @@ export default function Home() {
                       id="permaculture"
                       className="w-full sm:w-1/2 border-l-2 border-t-2 border-r-2 sm:border-r-0 border-primary-900 text-primary-900 flex items-center sm:px-7 scroll-mt-[110px]">
                       <h2
-                        className="text-[30px] leading-[42px] py-4 px-6 sm:p-0 text-center sm:text-left sm:text-[44px] sm:leading-[54px] font-sporting-grotesque">La
-                        permaculture</h2>
+                        className="text-[30px] leading-[42px] py-4 px-6 sm:p-0 text-center sm:text-left sm:text-[44px] sm:leading-[54px] font-sporting-grotesque">{bloc.title}</h2>
                     </div>
                     <div className="hidden sm:block w-1/2 border-l-2 border-b-0 border-primary-900 h-20"></div>
                   </div>
@@ -175,66 +176,25 @@ export default function Home() {
                       <div className="w-full sm:w-1/2">
                         <div
                           className="w-full h-auto p-[50%] max-w-[255px] max-h-[255px] sm:w-[470px] sm:h-[470px] relative">
-                          <Image src="/img/img-permaculture@2x.png" alt="" fill/>
+                          <Image src={urlForImage(bloc.image)?.url()} alt="" fill/>
                         </div>
                       </div>
                       <div className="w-full sm:w-1/2 space-y-3">
-                        <p className="text-[18px] leading-[22px] text-primary-900">La permaculture est un concept qui
-                          englobe à la fois une méthode de conception durable pour les systèmes humains et une
-                          philosophie
-                          de vie. Le mot « Permaculture » est une contraction de
-                          « culture permanente ». Vivre avec la nature, prélever ce qu’elle nous donne tout en la
-                          respectant pour les générations actuelles et futures. Renaturer les sols et cultiver son
-                          jardin
-                          naturellement avec des connaissances bien structurées pour satisfaire les besoins de sa
-                          famille
-                          et de ses proches.</p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          L’autonomie alimentaire est une belle approche pour le développement durable.
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          Produire ses graines jusqu’à la récolte, il y a tout un chemin minutieux à parcourir en
-                          redécouvrant du sens à ce que l’on fait. La conservation et le recyclage des déchets verts
-                          font
-                          partie intégrante de ce cercle vertueux. Chacun de nous peut apporter sa pierre à l’édifice.
-                        </p>
+                        {bloc.bloc2.map((content) => (
+                            <p key={content.children[0]._key} className="text-[18px] leading-[22px] text-primary-900">{content.children[0].text}</p>
+                        ))}
                       </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-[50px]">
                       <div className="w-full sm:w-1/2 space-y-3">
-                        <p className="text-[18px] leading-[22px] text-primary-900">La qualité des aliments du potager
-                          est notre santé. Elle dépend aussi de la vie des sols, notre « Terre Mère ».
-                          « Prendre soin de la terre » est l’un des piliers fondamentaux de la permaculture défendu par
-                          Bill Mollison et David Holmgren pères du terme
-                          « permaculture ».
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          Selon Bill Mollison et David Holmgren « Le second pilier est de « prendre soin des hommes et
-                          des femmes » en réunissant les forces et les ressources pour réaliser des actions collectives
-                          ».
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          « Le partage équitable en créant une abondance alimentaire, des liens sociaux, d’écologie et
-                          même menée financièrement pour que chacun puisse vivre confortablement et équitablement ».
-                        </p>
+                        {bloc.bloc1.map((content) => (
+                            <p key={content.children[0]._key} className="text-[18px] leading-[22px] text-primary-900">{content.children[0].text}</p>
+                        ))}
                       </div>
                       <div className="w-full sm:w-1/2 space-y-3">
-                        <p className="text-[18px] leading-[22px] text-primary-900">Le bien-être se ressource sur des
-                          choses simples de la vie comme le Bonheur.
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          Aujourd’hui, vu le contexte actuel entre le prix de production des fruits et des légumes et le
-                          temps qu’il nous reste pour faire du jardin ; ce modèle cultural est beaucoup plus simple que
-                          le modèle traditionnel et moins cher. Vous faites travailler à votre place ce que la nature
-                          vous donne.
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          Vous favorisez la biodiversité dans son écosystème équilibré et vous le nourrissez pour le
-                          rendre pérenne.
-                        </p>
-                        <p className="text-[18px] leading-[22px] text-primary-900">
-                          La résilience à la sécheresse et aux canicules est tout à fait possible en appliquant quelques
-                          connaissances et de nouvelles habitudes durablement dans votre jardin.</p>
+                        {bloc.bloc3.map((content) => (
+                            <p key={content.children[0]._key} className="text-[18px] leading-[22px] text-primary-900">{content.children[0].text}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -249,26 +209,18 @@ export default function Home() {
                 <div className="w-full sm:w-1/2 items-center flex order-2 sm:order-1">
                   <div className="text-primary-900">
                     <h2
-                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">Je
-                      suis<br/>Laurent Jarosz, formateur et passionné</h2>
-                    <p className="w-full"><img className="mr-2 inline-block" src="/img/icon-plume.svg" alt="" width={20}
-                                               height={24}/>Mes parents m&apos;ont transmis leur amour du jardin ce qui
-                      m&apos;a permis de
-                      découvrir
-                      ma passion pour les plantes. Depuis mon enfance je me suis toujours intéressé à
-                      l&apos;épanouissement
-                      des plantes pour obtenir des fleurs nombreuses et colorées. J&apos;ai à cœur de transmettre mes
-                      connaissances sur la permaculture, afin de préserver la biodiversité et les générations
-                      futures.</p>
+                      className="text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] mb-5 block font-sporting-grotesque">{about.title}</h2>
+                    <p className="w-full">
+                        <img className="mr-2 inline-block" src="/img/icon-plume.svg" alt="" width={20}
+                                               height={24}/>{about.subtitle}</p>
                     <button onClick={() => setShowAboutModal(true)}
-                            className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 font-bold">En
-                      savoir plus
+                            className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 font-bold">{about.cta}
                     </button>
                   </div>
                 </div>
                 <div className="w-full sm:w-1/2 flex flex-col gap-6 items-center order-1 sm:order-2">
                   <div className="w-[295px] h-[295px] sm:w-[485px] sm:h-[485px] relative">
-                    <Image src="/img/img-about@2x.png" alt="" fill/>
+                    <Image src={urlForImage(about.image)?.url()} alt="" fill/>
                   </div>
                 </div>
               </div>
@@ -284,37 +236,27 @@ export default function Home() {
                       id="formations"
                       className="w-full sm:w-1/2 border-l-2 sm:border-l-0 border-r-2 border-t-2 border-primary-900 text-primary-900 flex items-center px-7 scroll-mt-[110px]">
                       <h2
-                        className="text-center sm:text-left text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] py-4 px-6 sm:p-0 font-sporting-grotesque">Les
-                        formations</h2>
+                        className="text-center sm:text-left text-[30px] leading-[42px] sm:text-[44px] sm:leading-[54px] py-4 px-6 sm:p-0 font-sporting-grotesque">{formation.title}</h2>
                     </div>
                   </div>
                   <div className="border-2 border-primary-900 flex flex-col">
                     <div className="bg-primary-900 p-2.5 flex justify-center">
                       <span
-                        className="text-[15px] leading-[18px] text-center sm:text-left text-primary-200 font-medium">Les formations sont réalisées par visio-conférence et en groupe, jusqu&apos;à 15 participants</span>
+                        className="text-[15px] leading-[18px] text-center sm:text-left text-primary-200 font-medium">{formation.info}</span>
                     </div>
                     <div className="flex flex-col sm:flex-row w-full">
                       <div className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center">
                         <h3
-                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Un
-                          jardin en autonomie</h3>
+                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">{formation.formation1title}</h3>
                         <span
-                          className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">25 €</span>
+                          className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">{formation.formation1price}</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
-                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée avec un temps d&apos;échange d&apos;une heure.</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">{formation.formation1subtitle}</span>
                         <ul
                           className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
-                          <li>La relation systémique entre les sols, les plantes et le climat</li>
-                          <li> La vie des microbiotes des sols, la santé commence par le respect de la Terre
-                            nourricière.
-                          </li>
-                          <li>L&apos;association des plantes entre elles pour favoriser leur croissance et leur défense.
-                          </li>
-                          <li>La rotation des cultures</li>
-                          <li>Le recyclage des déchets verts</li>
-                          <li>Le paillage</li>
-                          <li>Les engrais verts</li>
-                          <li>Produire ses graines et les conserver.</li>
+                          {formation.formation1desc.map((content) => (
+                              <li key={content.children[0]}>{content.children[0].text}</li>
+                          ))}
                         </ul>
                         <button
                           onClick={() => {
@@ -322,28 +264,22 @@ export default function Home() {
                             Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-un-jardin-en-autonomie'});
                             return false;
                           }}
-                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-full font-bold">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-full font-bold">{formation.formationcta}
                         </button>
                       </div>
                       <div
                         className="w-full sm:w-1/2 px-4 py-8 sm:p-24 flex flex-col items-center border-t-2 sm:border-t-0  sm:border-l-2 border-primary-900">
                         <h3
-                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">Les
-                          plantes à la maison</h3>
+                          className="font-sporting-grotesque text-primary-700 font-bold text-[18px] leading-[30px] mb-6 sm:mb-[50px] text-center sm:text-left">{formation.formation1title}</h3>
                         <span
-                          className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">25 €</span>
+                          className="font-sporting-grotesque text-primary-900 text-[38px] leading-[44px]">{formation.formation2price}</span>
                         <span className="text-primary-700 font-medium text-[15px] leading-[15px]">par personne</span>
-                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">Formation simplifiée avec un temps d&apos;échange d&apos;une heure.</span>
+                        <span className="text-primary-900 font-bold text-[15px] leading-[18px] mt-[50px]">{formation.formation2subtitle}</span>
                         <ul
                           className="list-disc text-primary-900 font-medium text-[15px] leading-[18px] px-6 mt-2.5 space-y-1">
-                          <li>La croissance des plantes et comment pallier les facteurs limitants dans un environnement
-                            clos.
-                          </li>
-                          <li>Les substrats</li>
-                          <li>L&apos;arrosage</li>
-                          <li>Le fleurissement</li>
-                          <li>Garder ses plantes l&apos;hiver.</li>
-                          <li>Fertiliser naturellement ses plantes d&apos;intérieur dès le printemps.</li>
+                          {formation.formation2desc.map((content) => (
+                              <li key={content.children[0]}>{content.children[0].text}</li>
+                          ))}
                         </ul>
                         <button
                           onClick={() => {
@@ -351,26 +287,24 @@ export default function Home() {
                             Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-les-plantes-a-la-maison'});
                             return false;
                           }}
-                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-auto w-full font-bold">Réserver
+                          className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] sm:mt-auto w-full font-bold">{formation.formationcta}
                         </button>
                       </div>
                     </div>
                     <div className="border-t-2 border-primary-900 px-4 py-8 sm:p-24 flex flex-col">
                       <span
-                        className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">Sur-mesure</span>
-                      <h2 className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">Vous
-                        êtes une école, un collège, un lycée, un particulier, un groupe… ?</h2>
+                        className="font-sporting-grotesque text-primary-900 text-[26px] leading-[36px] sm:text-[38px] sm:leading-[44px]">{formation.formationcustomtitle}</span>
+                      <h2 className="font-sporting-grotesque font-bold text-[14px] leading-[23px] text-primary-700">{formation.formationcustomsubtitle}</h2>
                       <div className="mt-6 sm:mt-[50px] flex flex-col sm:flex-row sm:gap-32">
                         <div className="w-full sm:w-1/2 text-primary-900 flex flex-col">
-                          <span className="text-[18px] leading-[22px]">Vous souhaitez réaliser une formation de permaculture selon certaines conditions ?</span>
-                          <span className="font-medium text-[15px] leading-[15px] mt-2.5">Je m&apos;adapte à vos besoins en réalisant des formations sur-mesures.</span>
-                          <span className="font-medium text-[15px] leading-[15px] mt-5">Ces formations peuvent être réalisées en visio-conférence ou en physique.</span>
+                          <span className="text-[18px] leading-[22px]">{formation.formationcustomdesc[0].children[0].text}</span>
+                          <span className="font-medium text-[15px] leading-[15px] mt-2.5">{formation.formationcustomdesc[1].children[0].text}</span>
+                          <span className="font-medium text-[15px] leading-[15px] mt-5">{formation.formationcustomdesc[2].children[0].text}</span>
                         </div>
                         <div className="w-full sm:w-1/2">
                           <a
                             href="mailto:agreenup89@gmail.fr?subject=Site Agreenup | Demande de devis"
-                            className="cursor-pointer text-center px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full max-w-[314px] mx-auto font-bold block">Demander
-                            un devis
+                            className="cursor-pointer text-center px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] text-[18px] leading-[22px] mt-10 w-full max-w-[314px] mx-auto font-bold block">{formation.formationcustomcta}
                           </a>
                         </div>
                       </div>
@@ -433,4 +367,22 @@ export default function Home() {
       }/>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const header = await client.fetch(`*[_type == "header"]`);
+  const bloc = await client.fetch(`*[_type == "bloc"]`);
+  const about = await client.fetch(`*[_type == "iam"]`);
+  const formation = await client.fetch(`*[_type == "formation"]`);
+
+console.log(bloc[0])
+
+  return {
+    props: {
+      header: header[0],
+      bloc: bloc[0],
+      about: about[0],
+      formation: formation[0]
+    }
+  };
 }
