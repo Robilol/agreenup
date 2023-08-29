@@ -319,7 +319,7 @@ export default function Home() {
                         <button
                           onClick={() => {
                             // @ts-ignore
-                            Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-un-jardin-en-autonomie'});
+                            Calendly.initPopupWidget({url: 'https://calendly.com/agreenup89/formations-un-jardin-en-autonomie-clone'});
                             return false;
                           }}
                           className="px-5 py-2.5 bg-primary-600 text-primary-50 rounded-[40px] mt-8 text-[18px] leading-[22px] w-full font-bold">Réserver
