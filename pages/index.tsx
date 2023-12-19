@@ -391,7 +391,10 @@ export default function Home() {
                   <span className="font-bold text-primary-50 text-[18px] mb-5">Réseaux sociaux</span>
                   <a href="https://www.linkedin.com/in/laurent-jarosz-825701263/" target="_blank"
                      className="text-primary-50 text-[18px] underline">LinkedIn</a>
-                  {/*<a href="#" target="_blank" className="text-primary-50 text-[18px] underline">Instagram</a>*/}
+                  <a href="https://www.instagram.com/agreenup.fr/" target="_blank"
+                     className="text-primary-50 text-[18px] underline">Instagram</a>
+                  <a href="https://www.facebook.com/profile.php?id=61553792909620" target="_blank"
+                     className="text-primary-50 text-[18px] underline">Facebook</a>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-primary-50 text-[18px] mb-5">Envie d&apos;échanger ?</span>
